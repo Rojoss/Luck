@@ -3,17 +3,21 @@ package com.jroossien.luck;
 import com.jroossien.luck.commands.Commands;
 import com.jroossien.luck.config.PluginCfg;
 import com.jroossien.luck.config.messages.MessageCfg;
+import com.jroossien.luck.config.messages.Msg;
 import com.jroossien.luck.events.internal.EventManager;
 import com.jroossien.luck.listeners.MainListener;
+import com.jroossien.luck.util.EItem;
 import net.milkbowl.vault.Vault;
 import net.milkbowl.vault.economy.Economy;
+import org.bukkit.Material;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
+import org.bukkit.inventory.ShapedRecipe;
 import org.bukkit.plugin.Plugin;
-import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.RegisteredServiceProvider;
 import org.bukkit.plugin.java.JavaPlugin;
 
+import java.util.Map;
 import java.util.logging.Logger;
 
 public class Luck extends JavaPlugin {
@@ -61,6 +65,7 @@ public class Luck extends JavaPlugin {
 
         em = new EventManager(this);
 
+        registerRecipe();
         registerListeners();
 
         log("loaded successfully");
@@ -69,6 +74,20 @@ public class Luck extends JavaPlugin {
     @Override
     public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
         return cmds.onCommand(sender, cmd, label, args);
+    }
+
+    private void registerRecipe() {
+        ShapedRecipe recipe = new ShapedRecipe(new EItem(Material.EMERALD).setName(Msg.ITEM_NAME.getMsg()).setLore(Msg.ITEM_LORE.getMsg()).makeGlowing(true));
+        recipe.shape(cfg.gem_recipe__row1, cfg.gem_recipe__row2, cfg.gem_recipe__row3);
+        for (Map<String, String> ingredient : cfg.gem_recipe_items.values()) {
+            Material mat = Material.matchMaterial(ingredient.get("material"));
+            String character = ingredient.get("char");
+            if (mat == null || character.isEmpty()) {
+                continue;
+            }
+            recipe.setIngredient(ingredient.get("char").toCharArray()[0], mat);
+        }
+        getServer().addRecipe(recipe);
     }
 
     private void registerListeners() {

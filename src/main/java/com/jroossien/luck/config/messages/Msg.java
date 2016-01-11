@@ -21,6 +21,9 @@ public enum Msg {
     EVENT_INFO_EXTRA_SEPERATOR(Cat.COMMAND, "&8&l: "),
     EVENT_INFO_EXTRA_VALUE(Cat.COMMAND, "&7"),
 
+    ITEM_NAME(Cat.GEM, "&a&lLucky Gem"),
+    ITEM_LORE(Cat.GEM, "&7Carrying this gem gives you &aluck&7!\n&7The more you have the more luck!"),
+
     ;
 
 
@@ -87,6 +90,7 @@ public enum Msg {
     private enum Cat {
         GENERAL,
         COMMAND,
+        GEM,
         ;
     }
 }
