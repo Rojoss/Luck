@@ -77,7 +77,7 @@ public class Luck extends JavaPlugin {
     }
 
     private void registerRecipe() {
-        ShapedRecipe recipe = new ShapedRecipe(new EItem(Material.EMERALD).setName(Msg.ITEM_NAME.getMsg()).setLore(Msg.ITEM_LORE.getMsg()).makeGlowing(true));
+        ShapedRecipe recipe = new ShapedRecipe(getGem());
         recipe.shape(cfg.gem_recipe__row1, cfg.gem_recipe__row2, cfg.gem_recipe__row3);
         for (Map<String, String> ingredient : cfg.gem_recipe_items.values()) {
             Material mat = Material.matchMaterial(ingredient.get("material"));
@@ -120,5 +120,9 @@ public class Luck extends JavaPlugin {
 
     public EventManager getEM() {
         return em;
+    }
+
+    public EItem getGem() {
+        return new EItem(Material.EMERALD).setName(Msg.ITEM_NAME.getMsg()).setLore(Msg.ITEM_LORE.getMsg()).makeGlowing(true);
     }
 }
