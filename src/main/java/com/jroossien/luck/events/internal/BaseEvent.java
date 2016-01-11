@@ -47,6 +47,10 @@ public class BaseEvent implements Listener {
         return name;
     }
 
+    public String getDisplayName() {
+        return displayName;
+    }
+
     public String getDescription() {
         return description;
     }

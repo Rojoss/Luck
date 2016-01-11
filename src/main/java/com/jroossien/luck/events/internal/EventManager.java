@@ -75,6 +75,10 @@ public class EventManager {
         }
     }
 
+    public Map<String, BaseEvent> getEvents() {
+        return events;
+    }
+
     public static EventManager inst() {
         return instance;
     }
