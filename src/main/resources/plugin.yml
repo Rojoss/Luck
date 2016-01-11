@@ -1,0 +1,11 @@
+main : ${project.groupId}.luck.Luck
+name: Luck
+version: ${project.version}
+description: ${project.description}
+author: ${project.author}
+softdepend: [Vault]
+commands:
+  luck:
+    description: Main Luck command.
+    usage: /<command> [help|events|event|recipe|reload|info|buy]
+    aliases: [lucky,lu,l]
