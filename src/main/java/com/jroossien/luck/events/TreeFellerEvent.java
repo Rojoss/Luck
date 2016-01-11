@@ -47,6 +47,10 @@ public class TreeFellerEvent extends BaseEvent {
             return;
         }
 
+        if (!checkChance(gm.getPercentage(event.getPlayer()))) {
+            return;
+        }
+
         TreeTypes type = null;
         for (TreeTypes treeType : allowedtypes) {
             if (treeType.log == block.getType() && treeType.dataTypes.contains(block.getData())) {
