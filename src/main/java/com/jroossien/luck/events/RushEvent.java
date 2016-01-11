@@ -1,16 +1,12 @@
 package com.jroossien.luck.events;
 
 import com.jroossien.luck.events.internal.BaseEvent;
-import org.bukkit.Bukkit;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.player.PlayerToggleSprintEvent;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
 
 public class RushEvent extends BaseEvent {
-
-    private int amplifier;
-    private int duration;
 
     public RushEvent(String name, String description, Double minChance, Double maxChance) {
         super(name, description, minChance, maxChance);
@@ -21,9 +17,6 @@ public class RushEvent extends BaseEvent {
         super.loadData();
         cfg.addDefault(name + ".amplifier", 2);
         cfg.addDefault(name + ".durationTicks", 100);
-
-        amplifier = cfg.getInt(name + ".amplifier");
-        duration = cfg.getInt(name + ".durationTicks");
     }
 
     @EventHandler
@@ -32,7 +25,7 @@ public class RushEvent extends BaseEvent {
             return;
         }
         if (checkChance(gm.getPercentage(event.getPlayer()))) {
-            event.getPlayer().addPotionEffect(new PotionEffect(PotionEffectType.SPEED, duration, amplifier));
+            event.getPlayer().addPotionEffect(new PotionEffect(PotionEffectType.SPEED, cfg.getInt(name + ".durationTicks"), cfg.getInt(name + ".amplifier")));
         }
     }
 
