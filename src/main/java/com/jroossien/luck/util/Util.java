@@ -15,6 +15,12 @@ import java.util.regex.Pattern;
 
 public class Util {
 
+    private static Random random;
+
+    static {
+        random = new Random();
+    }
+
     /**
      * Integrate ChatColor in a string based on color codes.
      * @param str The string to apply color to.
@@ -58,6 +64,54 @@ public class Util {
      */
     public static String stripAllColor(String str) {
         return ChatColor.stripColor(colorChatColors(str));
+    }
+
+
+
+    /**
+     * Get a random number between start and end.
+     * @param start
+     * @param end
+     * @return random int
+     */
+    public static int random(int start, int end) {
+        return start + random.nextInt(end - start + 1);
+    }
+
+    /**
+     * Get a random float number between start and end.
+     * @param start
+     * @param end
+     * @return random float
+     */
+    public static float randomFloat(float start, float end) {
+        return random.nextFloat() * (end - start) + start;
+    }
+
+    /**
+     * Get a random float (Same as Random.nextFloat())
+     * @return random float between 0-1
+     */
+    public static float randomFloat() {
+        return random.nextFloat();
+    }
+
+    /**
+     * Get a random value out of a Array.
+     * @param array The array like String[] or int[]
+     * @return Random value out of array.
+     */
+    public static <T> T random(T[] array) {
+        return array[random(0, array.length-1)];
+    }
+
+    /**
+     * Get a random value out of a List.
+     * @param list The list like List<String>
+     * @return Random value out of list.
+     */
+    public static <T> T random(List<T> list) {
+        return list.get(random(0, list.size() - 1));
     }
 
 
@@ -282,6 +336,17 @@ public class Util {
             }
         }
         return null;
+    }
+
+
+    public static double lerp(double start, double end, double perc) {
+        if (Double.isNaN(perc) || perc > 1) {
+            return end;
+        } else if (perc < 0) {
+            return start;
+        } else {
+            return start * (1 - perc) + end * perc;
+        }
     }
 
 

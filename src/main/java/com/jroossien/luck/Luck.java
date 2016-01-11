@@ -3,6 +3,7 @@ package com.jroossien.luck;
 import com.jroossien.luck.commands.Commands;
 import com.jroossien.luck.config.PluginCfg;
 import com.jroossien.luck.config.messages.MessageCfg;
+import com.jroossien.luck.events.internal.EventManager;
 import com.jroossien.luck.listeners.MainListener;
 import net.milkbowl.vault.Vault;
 import net.milkbowl.vault.economy.Economy;
@@ -25,6 +26,8 @@ public class Luck extends JavaPlugin {
     private MessageCfg msgCfg;
 
     private Commands cmds;
+
+    private EventManager em;
 
     private final Logger log = Logger.getLogger("Luck");
 
@@ -56,6 +59,8 @@ public class Luck extends JavaPlugin {
 
         cmds = new Commands(this);
 
+        em = new EventManager(this);
+
         registerListeners();
 
         log("loaded successfully");
@@ -67,8 +72,7 @@ public class Luck extends JavaPlugin {
     }
 
     private void registerListeners() {
-        PluginManager pm = getServer().getPluginManager();
-        pm.registerEvents(new MainListener(this), this);
+        getServer().getPluginManager().registerEvents(new MainListener(this), this);
     }
 
     public void log(Object msg) {
@@ -93,5 +97,9 @@ public class Luck extends JavaPlugin {
 
     public MessageCfg getMsgCfg() {
         return msgCfg;
+    }
+
+    public EventManager getEM() {
+        return em;
     }
 }
