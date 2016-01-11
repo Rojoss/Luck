@@ -1,6 +1,7 @@
 package com.jroossien.luck.events.internal;
 
 import com.jroossien.luck.Luck;
+import com.jroossien.luck.luck.GemManager;
 import com.jroossien.luck.util.Util;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.event.Listener;
@@ -8,6 +9,7 @@ import org.bukkit.event.Listener;
 public class BaseEvent implements Listener {
 
     protected Luck luck;
+    protected GemManager gm;
     protected EventManager em;
     protected YamlConfiguration cfg;
 
@@ -20,6 +22,7 @@ public class BaseEvent implements Listener {
 
     public BaseEvent(String name, String description, Double minChance, Double maxChance) {
         luck = Luck.inst();
+        gm = luck.getGM();
         em = EventManager.inst();
         cfg = em.getCfg();
 
@@ -63,11 +66,11 @@ public class BaseEvent implements Listener {
         return maxChance;
     }
 
-    protected Double getChance(float percentage) {
-        return Util.lerp(minChance, maxChance, percentage);
+    public Double getChance(double percentage) {
+        return Util.lerp(minChance / 100, maxChance / 100, percentage);
     }
 
-    protected boolean checkChance(float percentage) {
-        return Util.randomFloat() * 100 <= getChance(percentage);
+    protected boolean checkChance(double percentage) {
+        return Util.randomFloat() <= getChance(percentage);
     }
 }

@@ -1,12 +1,11 @@
 package com.jroossien.luck.config;
 
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 public class PluginCfg extends EasyConfig {
 
+    public int max_luck_gems = 64;
     public Double gem_purchase_price = 100d;
     public String gem_recipe__row1 = " $ ";
     public String gem_recipe__row2 = "$@$";

@@ -11,7 +11,6 @@ import org.bukkit.entity.Player;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
 public class Commands {
     private Luck lu;
@@ -110,8 +109,7 @@ public class Commands {
                 Msg.EVENT_INFO.send(sender, false, true, Param.P("{name}", event.getName()), Param.P("{display-name}", event.getDisplayName()), Param.P("{description}", event.getDescription()),
                         Param.P("{min-chance}", event.getMinChance() + "%"), Param.P("{max-chance}", event.getMaxChance() + "%"));
                 if (sender instanceof Player) {
-                    //TODO: Get player percentage instead of 100%
-                    Msg.EVENT_INFO_YOUR_CHANCE.send(sender, false, true, Param.P("{chance}", "100%"));
+                    Msg.EVENT_INFO_YOUR_CHANCE.send(sender, false, true, Param.P("{chance}", (event.getChance(lu.getGM().getPercentage((Player)sender)) * 100) + "%"));
                 }
                 //TODO: Display any extra config data.
                 return true;

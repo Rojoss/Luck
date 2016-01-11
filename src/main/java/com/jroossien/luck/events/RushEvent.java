@@ -1,6 +1,7 @@
 package com.jroossien.luck.events;
 
 import com.jroossien.luck.events.internal.BaseEvent;
+import org.bukkit.Bukkit;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.player.PlayerToggleSprintEvent;
 import org.bukkit.potion.PotionEffect;
@@ -30,8 +31,7 @@ public class RushEvent extends BaseEvent {
         if (event.isSprinting()) {
             return;
         }
-        //TODO: Get player luck % instead of 100%.
-        if (checkChance(1f)) {
+        if (checkChance(gm.getPercentage(event.getPlayer()))) {
             event.getPlayer().addPotionEffect(new PotionEffect(PotionEffectType.SPEED, duration, amplifier));
         }
     }

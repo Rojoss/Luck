@@ -6,6 +6,7 @@ import com.jroossien.luck.config.messages.MessageCfg;
 import com.jroossien.luck.config.messages.Msg;
 import com.jroossien.luck.events.internal.EventManager;
 import com.jroossien.luck.listeners.MainListener;
+import com.jroossien.luck.luck.GemManager;
 import com.jroossien.luck.util.EItem;
 import net.milkbowl.vault.Vault;
 import net.milkbowl.vault.economy.Economy;
@@ -31,6 +32,7 @@ public class Luck extends JavaPlugin {
 
     private Commands cmds;
 
+    private GemManager gm;
     private EventManager em;
 
     private final Logger log = Logger.getLogger("Luck");
@@ -63,6 +65,7 @@ public class Luck extends JavaPlugin {
 
         cmds = new Commands(this);
 
+        gm = new GemManager(this);
         em = new EventManager(this);
 
         registerRecipe();
@@ -118,9 +121,14 @@ public class Luck extends JavaPlugin {
         return msgCfg;
     }
 
+    public GemManager getGM() {
+        return gm;
+    }
+
     public EventManager getEM() {
         return em;
     }
+
 
     public EItem getGem() {
         return new EItem(Material.EMERALD).setName(Msg.ITEM_NAME.getMsg()).setLore(Msg.ITEM_LORE.getMsg()).makeGlowing(true);
