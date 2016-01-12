@@ -33,7 +33,12 @@ public class Commands {
                 if (!(sender instanceof Player)) {
                     showHelp(sender);
                 }
-                //TODO: Display current luck info etc.
+
+                Player player = (Player)sender;
+                int gems = lu.getGM().getGems(player, true);
+                double percentage = lu.getGM().getPercentage(player);
+
+                Msg.LUCK.send(player, false, true, Param.P("{gems}", gems), Param.P("{percentage}", percentage * 100 + "%"));
                 return true;
             }
 

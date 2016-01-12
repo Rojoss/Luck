@@ -17,7 +17,7 @@ public class GemData {
 
     public void setGems(int gems) {
         this.gems = gems;
-        percentage = (double)gems / Luck.inst().getCfg().max_luck_gems;
+        percentage = Math.min((double)gems / Luck.inst().getCfg().max_luck_gems, 1d);
         lastUpdate = System.currentTimeMillis();
     }
 
