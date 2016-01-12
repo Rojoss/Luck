@@ -2,6 +2,7 @@ package com.jroossien.luck.events.internal;
 
 import com.jroossien.luck.Luck;
 import com.jroossien.luck.events.RushEvent;
+import com.jroossien.luck.events.SnackEvent;
 import com.jroossien.luck.events.TreeFellerEvent;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.event.HandlerList;
@@ -35,6 +36,7 @@ public class EventManager {
     public void registerEvents() {
         registerEvent(new RushEvent("Rush", "", 0d, 3d));
         registerEvent(new TreeFellerEvent("FellTree", "", 1d, 10d));
+        registerEvent(new SnackEvent("Snack", "", 3d, 30d));
 
         save();
     }
