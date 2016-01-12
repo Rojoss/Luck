@@ -23,6 +23,18 @@ public class MainListener implements Listener {
 
     @EventHandler
     private void onCraft(PrepareItemCraftEvent event){
+        //Prevent crafting gems without permissions.
+        ItemStack result = event.getInventory().getResult();
+        if (result != null && result.getType() == Material.EMERALD && result.hasItemMeta()) {
+            ItemMeta meta = result.getItemMeta();
+            if (meta.hasLore() && meta.hasDisplayName() && Util.removeColor(meta.getDisplayName()).equalsIgnoreCase(Msg.ITEM_NAME.getMsg())) {
+                if (!Util.hasPermission(event.getView().getPlayer(), "luck.craft")) {
+                    event.getInventory().setResult(null);
+                }
+                return;
+            }
+        }
+
         //Cancel crafting with gems.
         ItemStack[] items = event.getInventory().getMatrix();
         for (ItemStack item : items) {
