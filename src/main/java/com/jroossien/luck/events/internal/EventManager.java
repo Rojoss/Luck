@@ -38,6 +38,7 @@ public class EventManager {
         registerEvent(new SmashEvent("Smash", "", 0d, 5d));
         registerEvent(new HasteEvent("Haste", "", 0d, 5d));
         registerEvent(new SpawnerEvent("Spawner", "", 0d, 1d));
+        registerEvent(new LootEvent("Loot", "", 0d, 5d));
 
         save();
     }

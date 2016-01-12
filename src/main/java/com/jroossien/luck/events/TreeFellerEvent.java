@@ -1,6 +1,7 @@
 package com.jroossien.luck.events;
 
 import com.jroossien.luck.events.internal.BaseEvent;
+import com.jroossien.luck.events.internal.TreeTypes;
 import com.jroossien.luck.util.Util;
 import com.jroossien.luck.util.particles.ParticleEffect;
 import org.bukkit.Material;

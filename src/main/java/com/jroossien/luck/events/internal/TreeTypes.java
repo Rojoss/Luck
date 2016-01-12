@@ -1,4 +1,4 @@
-package com.jroossien.luck.events;
+package com.jroossien.luck.events.internal;
 
 import org.bukkit.Material;
 
