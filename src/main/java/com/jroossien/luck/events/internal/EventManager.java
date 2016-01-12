@@ -42,11 +42,11 @@ public class EventManager {
         registerEvent(new FortuneEvent("Fortune", "", 0d, 5d));
         registerEvent(new GrowthEvent("Growth", "", 2d, 20d));
         registerEvent(new SalvageEvent("Salvage", "", 0d, 5d));
-        registerEvent(new ExtinguishEffect("Extinguish", "", 5d, 40d));
-        registerEvent(new RollEffect("Roll", "", 3d, 30d));
-        registerEvent(new RetainExpEffect("RetainExp", "", 3d, 20d));
+        registerEvent(new ExtinguishEvent("Extinguish", "", 5d, 40d));
+        registerEvent(new RollEvent("Roll", "", 3d, 30d));
+        registerEvent(new RetainExpEvent("RetainExp", "", 3d, 20d));
         registerEvent(new LuckyEvent("Lucky", "", 4d, 20d));
-        registerEvent(new CritEffect("Crit", "", 0d, 4d));
+        registerEvent(new CritEvent("Crit", "", 0d, 4d));
 
         save();
     }

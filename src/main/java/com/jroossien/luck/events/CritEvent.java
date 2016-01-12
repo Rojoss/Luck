@@ -9,9 +9,9 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
 import org.bukkit.projectiles.ProjectileSource;
 
-public class CritEffect extends BaseEvent {
+public class CritEvent extends BaseEvent {
 
-    public CritEffect(String name, String description, Double minChance, Double maxChance) {
+    public CritEvent(String name, String description, Double minChance, Double maxChance) {
         super(name, description, minChance, maxChance);
     }
 

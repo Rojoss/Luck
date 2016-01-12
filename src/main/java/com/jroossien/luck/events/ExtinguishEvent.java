@@ -16,11 +16,11 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
-public class ExtinguishEffect extends BaseEvent {
+public class ExtinguishEvent extends BaseEvent {
 
     private List<UUID> lavaPlayers = new ArrayList<UUID>();
 
-    public ExtinguishEffect(String name, String description, Double minChance, Double maxChance) {
+    public ExtinguishEvent(String name, String description, Double minChance, Double maxChance) {
         super(name, description, minChance, maxChance);
     }
 

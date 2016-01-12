@@ -7,9 +7,9 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.entity.PlayerDeathEvent;
 
-public class RetainExpEffect extends BaseEvent {
+public class RetainExpEvent extends BaseEvent {
 
-    public RetainExpEffect(String name, String description, Double minChance, Double maxChance) {
+    public RetainExpEvent(String name, String description, Double minChance, Double maxChance) {
         super(name, description, minChance, maxChance);
     }
 

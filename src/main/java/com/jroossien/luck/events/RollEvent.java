@@ -8,9 +8,9 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.entity.EntityDamageEvent;
 
-public class RollEffect extends BaseEvent {
+public class RollEvent extends BaseEvent {
 
-    public RollEffect(String name, String description, Double minChance, Double maxChance) {
+    public RollEvent(String name, String description, Double minChance, Double maxChance) {
         super(name, description, minChance, maxChance);
     }
 
