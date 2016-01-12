@@ -2,7 +2,9 @@ package com.jroossien.luck.events;
 
 import com.jroossien.luck.events.internal.BaseEvent;
 import com.jroossien.luck.util.Util;
+import com.jroossien.luck.util.particles.ParticleEffect;
 import org.bukkit.Material;
+import org.bukkit.Sound;
 import org.bukkit.block.Block;
 import org.bukkit.block.BlockFace;
 import org.bukkit.entity.FallingBlock;
@@ -94,6 +96,9 @@ public class TreeFellerEvent extends BaseEvent {
             return;
         }
 
+        ParticleEffect.CRIT.display(0.5f, 1f, 0.5f, 0.0f, 20, block.getLocation().add(0.5f, 0f, 0.5f));
+        block.getWorld().playSound(block.getLocation(), Sound.ZOMBIE_WOODBREAK, Util.randomFloat(0.1f, 0.4f), Util.randomFloat(0.2f, 1f));
+
         //Break blocks. (finally <3)
         int broken = 0;
         block = startBlock;
@@ -120,6 +125,10 @@ public class TreeFellerEvent extends BaseEvent {
     }
 
     private void breakBlock(Block block) {
+        if (Util.randomFloat() < 0.2f) {
+            block.getWorld().playSound(block.getLocation(), Sound.DIG_WOOD, Util.randomFloat(0.5f, 1f), Util.randomFloat(0.5f, 1.5f));
+        }
+        ParticleEffect.BLOCK_CRACK.display(new ParticleEffect.BlockData(block.getType(), block.getData()), 0.6f, 0.6f, 0.6f, 0.2f, 10, block.getLocation().add(0.5f, 0f, 0.5f));
         if (cfg.getBoolean(name + ".animateFall")) {
             Material mat = block.getType();
             byte data = block.getData();
@@ -148,6 +157,11 @@ public class TreeFellerEvent extends BaseEvent {
         new BukkitRunnable() {
             @Override
             public void run () {
+                if (Util.randomFloat() < 0.2f) {
+                    block.getWorld().playSound(block.getLocation(), Sound.DIG_WOOD, Util.randomFloat(0.5f, 1.2f), Util.randomFloat());
+                }
+                ParticleEffect.CRIT.display(0.5f, 0.5f, 0.5f, 0.0f, 2, block.getLocation().add(0.5f, 0f, 0.5f));
+                ParticleEffect.BLOCK_CRACK.display(new ParticleEffect.BlockData(block.getType(), block.getData()), 0.8f, 0.8f, 0.8f, 0.8f, 5, block.getLocation().add(0.5f, 0f, 0.5f));
                 block.breakNaturally();
             }
         }.runTaskLater(luck, 1);
