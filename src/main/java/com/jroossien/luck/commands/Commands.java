@@ -120,7 +120,7 @@ public class Commands {
                 return true;
             }
 
-
+            /*
             //Buy
             if (args[0].equalsIgnoreCase("buy") || args[0].equalsIgnoreCase("purchase")) {
                 if (!Util.hasPermission(sender, "luck.cmd.buy")) {
@@ -134,6 +134,7 @@ public class Commands {
                 //TODO: Purchase luck
                 return true;
             }
+            */
 
             showHelp(sender);
             return true;

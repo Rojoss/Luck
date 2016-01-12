@@ -20,8 +20,8 @@ public class SalvageEvent extends BaseEvent {
 
     List<Material> allowedItems = new ArrayList<Material>();
     
-    public SalvageEvent(String name, String description, Double minChance, Double maxChance) {
-        super(name, description, minChance, maxChance);
+    public SalvageEvent(String name, String description, String message, Double minChance, Double maxChance) {
+        super(name, description, message, minChance, maxChance);
     }
 
     @Override
@@ -78,6 +78,7 @@ public class SalvageEvent extends BaseEvent {
         }
         player.getWorld().playSound(player.getLocation(), Sound.ANVIL_USE, 1, 2);
         ParticleEffect.ENCHANTMENT_TABLE.display(0.8f, 2f, 0.8f, 0, 300, player.getLocation());
+        sendMessage(player);
     }
 
 }

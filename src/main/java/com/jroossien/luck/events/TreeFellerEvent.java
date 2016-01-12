@@ -24,8 +24,8 @@ public class TreeFellerEvent extends BaseEvent {
 
     private List<TreeTypes> allowedtypes = new ArrayList<TreeTypes>();
 
-    public TreeFellerEvent(String name, String description, Double minChance, Double maxChance) {
-        super(name, description, minChance, maxChance);
+    public TreeFellerEvent(String name, String description, String message, Double minChance, Double maxChance) {
+        super(name, description, message, minChance, maxChance);
     }
 
     @Override
@@ -99,6 +99,7 @@ public class TreeFellerEvent extends BaseEvent {
 
         ParticleEffect.CRIT.display(0.5f, 1f, 0.5f, 0.0f, 20, block.getLocation().add(0.5f, 0f, 0.5f));
         block.getWorld().playSound(block.getLocation(), Sound.ZOMBIE_WOODBREAK, Util.randomFloat(0.1f, 0.4f), Util.randomFloat(0.2f, 1f));
+        sendMessage(event.getPlayer());
 
         //Break blocks. (finally <3)
         int broken = 0;

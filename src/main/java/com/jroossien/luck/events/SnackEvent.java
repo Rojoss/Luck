@@ -10,8 +10,8 @@ import org.bukkit.scheduler.BukkitRunnable;
 
 public class SnackEvent extends BaseEvent {
 
-    public SnackEvent(String name, String description, Double minChance, Double maxChance) {
-        super(name, description, minChance, maxChance);
+    public SnackEvent(String name, String description, String message, Double minChance, Double maxChance) {
+        super(name, description, message, minChance, maxChance);
     }
 
     @Override
@@ -43,6 +43,7 @@ public class SnackEvent extends BaseEvent {
                 player.setFoodLevel(player.getFoodLevel() + (int)Math.round(change * (cfg.getDouble(name + ".hungerMultiplier") / 2)));
 
                 player.getWorld().playSound(player.getLocation(), Sound.BURP, Util.randomFloat(0.8f, 1.4f), Util.randomFloat(0.6f, 1.5f));
+                sendMessage(player);
             }
         }.runTaskLater(luck, 1);
     }

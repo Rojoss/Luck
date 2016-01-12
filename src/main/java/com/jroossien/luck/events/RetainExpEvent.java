@@ -9,8 +9,8 @@ import org.bukkit.event.entity.PlayerDeathEvent;
 
 public class RetainExpEvent extends BaseEvent {
 
-    public RetainExpEvent(String name, String description, Double minChance, Double maxChance) {
-        super(name, description, minChance, maxChance);
+    public RetainExpEvent(String name, String description, String message, Double minChance, Double maxChance) {
+        super(name, description, message, minChance, maxChance);
     }
 
     @EventHandler
@@ -26,6 +26,7 @@ public class RetainExpEvent extends BaseEvent {
 
         player.getWorld().playSound(player.getLocation(), Sound.LEVEL_UP, 1.0f, 2f);
         ParticleEffect.VILLAGER_HAPPY.display(1.0f, 1.0f, 1.0f, 1.0f, 50, player.getLocation());
+        sendMessage(player);
     }
 
 }

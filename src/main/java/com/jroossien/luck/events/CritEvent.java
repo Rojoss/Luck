@@ -11,8 +11,8 @@ import org.bukkit.projectiles.ProjectileSource;
 
 public class CritEvent extends BaseEvent {
 
-    public CritEvent(String name, String description, Double minChance, Double maxChance) {
-        super(name, description, minChance, maxChance);
+    public CritEvent(String name, String description, String message, Double minChance, Double maxChance) {
+        super(name, description, message, minChance, maxChance);
     }
 
     @Override
@@ -47,5 +47,7 @@ public class CritEvent extends BaseEvent {
         ParticleEffect.FIREWORKS_SPARK.display(0.5f, 1f, 0.5f, 0, 5, event.getEntity().getLocation());
         event.getEntity().getWorld().playSound(event.getEntity().getLocation(), Sound.SILVERFISH_KILL, 0.5f, 2);
         damager.getWorld().playSound(damager.getLocation(), Sound.SILVERFISH_KILL, 0.5f, 2);
+
+        sendMessage(damager);
     }
 }

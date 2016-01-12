@@ -23,8 +23,8 @@ public class GrowthEvent extends BaseEvent {
 
     List<Material> allowedCrops = new ArrayList<Material>();
 
-    public GrowthEvent(String name, String description, Double minChance, Double maxChance) {
-        super(name, description, minChance, maxChance);
+    public GrowthEvent(String name, String description, String message, Double minChance, Double maxChance) {
+        super(name, description, message, minChance, maxChance);
     }
 
     @Override
@@ -88,6 +88,7 @@ public class GrowthEvent extends BaseEvent {
                 }.runTaskTimer(luck, 2, 1);
                 player.playSound(block.getLocation(), Sound.DIG_GRASS, Util.randomFloat(0.8f, 1.2f), Util.randomFloat(0.4f, 1f));
                 ParticleEffect.DRIP_WATER.display(0.3f, 0.4f, 0.3f, 0, 30, plantBlock.getLocation().add(0.5f, -0.5f, 0.5f));
+                sendMessage(player);
             }
         }
     }
@@ -104,7 +105,7 @@ public class GrowthEvent extends BaseEvent {
             return;
         }
 
-        Player player = event.getPlayer();
+        final Player player = event.getPlayer();
         if (!checkChance(gm.getPercentage(player))) {
             return;
         }
@@ -112,6 +113,7 @@ public class GrowthEvent extends BaseEvent {
         //Cactus and sugarcane. (Stack up to 3)
         if (block.getType() == Material.CACTUS || block.getType() == Material.SUGAR_CANE_BLOCK) {
             ParticleEffect.VILLAGER_HAPPY.display(0.3f, 0.3f, 0.3f, 0, 20, block.getLocation().add(0.5f, 0.5f, 0.5f));
+            sendMessage(player);
             Material type = block.getType();
             Block currBlock = block;
             for (int i = 0; i < 2; i++) {
@@ -180,6 +182,7 @@ public class GrowthEvent extends BaseEvent {
                     block.setData(plantData);
                 } else {
                     ParticleEffect.VILLAGER_HAPPY.display(0.3f, 0.3f, 0.3f, 0, 20, block.getLocation().add(0.5f, 0.5f, 0.5f));
+                    sendMessage(player);
                 }
             }
         }.runTaskLater(luck, 1);

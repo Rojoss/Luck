@@ -20,8 +20,8 @@ public class ExtinguishEvent extends BaseEvent {
 
     private List<UUID> lavaPlayers = new ArrayList<UUID>();
 
-    public ExtinguishEvent(String name, String description, Double minChance, Double maxChance) {
-        super(name, description, minChance, maxChance);
+    public ExtinguishEvent(String name, String description, String message, Double minChance, Double maxChance) {
+        super(name, description, message, minChance, maxChance);
     }
 
     @Override
@@ -58,6 +58,7 @@ public class ExtinguishEvent extends BaseEvent {
         ParticleEffect.LAVA.display(1f, 0.2f, 1f, 0, 50, player.getLocation());
         ParticleEffect.FLAME.display(0.5f, 1f, 0.5f, 0, 20, player.getLocation());
         player.getWorld().playSound(player.getLocation(), Sound.FIZZ, Util.randomFloat(0.5f, 1), Util.randomFloat(0, 0.8f));
+        sendMessage(player);
     }
 
     @EventHandler

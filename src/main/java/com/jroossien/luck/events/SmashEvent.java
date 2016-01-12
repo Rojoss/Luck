@@ -19,8 +19,8 @@ public class SmashEvent extends BaseEvent {
 
     List<Material> allowedBlocks = new ArrayList<Material>();
 
-    public SmashEvent(String name, String description, Double minChance, Double maxChance) {
-        super(name, description, minChance, maxChance);
+    public SmashEvent(String name, String description, String message, Double minChance, Double maxChance) {
+        super(name, description, message, minChance, maxChance);
     }
 
     @Override
@@ -59,6 +59,7 @@ public class SmashEvent extends BaseEvent {
         block.getWorld().playSound(block.getLocation(), Sound.ZOMBIE_WOODBREAK, Util.randomFloat(0.2f, 0.6f), Util.randomFloat(0, 0.5f));
 
         event.setInstaBreak(true);
+        sendMessage(player);
     }
 
 }

@@ -28,8 +28,8 @@ public class SpawnerEvent extends BaseEvent {
 
     List<EntityType> allowedEntities = new ArrayList<EntityType>();
 
-    public SpawnerEvent(String name, String description, Double minChance, Double maxChance) {
-        super(name, description, minChance, maxChance);
+    public SpawnerEvent(String name, String description, String message, Double minChance, Double maxChance) {
+        super(name, description, message, minChance, maxChance);
     }
 
     @Override
@@ -46,7 +46,7 @@ public class SpawnerEvent extends BaseEvent {
     }
     
     @EventHandler
-    public void haste(BlockBreakEvent event) {
+    public void breakSpawner(BlockBreakEvent event) {
         final Block block = event.getBlock();
         if (!(block.getState() instanceof CreatureSpawner)) {
             return;
@@ -81,6 +81,7 @@ public class SpawnerEvent extends BaseEvent {
             }
         }.runTaskTimer(luck, 10, 1);
 
+        sendMessage(player);
         EItem spawnerItem = new EItem(Material.MOB_SPAWNER).setName(Msg.SPAWNER_NAME_PREFIX.getMsg(false, false, Param.P("{entity}", spawner.getSpawnedType().toString().toLowerCase().replace("_", "")))
                 + Msg.SPAWNER_NAME_SUFFIX.getMsg()).setLore("&e&o" + spawner.getSpawnedType().toString().toLowerCase().replace("_", ""));
         block.getWorld().dropItemNaturally(block.getLocation().add(0.5f, 0.5f, 0.5f), spawnerItem);

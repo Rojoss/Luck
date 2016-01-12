@@ -18,8 +18,8 @@ public class LootEvent extends BaseEvent {
 
     private Map<EntityType, List<EItem>> lootMap = new HashMap<EntityType, List<EItem>>();
 
-    public LootEvent(String name, String description, Double minChance, Double maxChance) {
-        super(name, description, minChance, maxChance);
+    public LootEvent(String name, String description, String message, Double minChance, Double maxChance) {
+        super(name, description, message, minChance, maxChance);
     }
 
     @Override
@@ -85,6 +85,7 @@ public class LootEvent extends BaseEvent {
 
         EItem item = Util.random(lootMap.get(event.getEntityType()));
         entity.getWorld().dropItemNaturally(entity.getLocation(), item);
+        sendMessage(player);
     }
 
 }

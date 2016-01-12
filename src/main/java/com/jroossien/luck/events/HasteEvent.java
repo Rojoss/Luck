@@ -22,8 +22,8 @@ public class HasteEvent extends BaseEvent {
 
     List<Material> allowedBlocks = new ArrayList<Material>();
 
-    public HasteEvent(String name, String description, Double minChance, Double maxChance) {
-        super(name, description, minChance, maxChance);
+    public HasteEvent(String name, String description, String message, Double minChance, Double maxChance) {
+        super(name, description, message, minChance, maxChance);
     }
 
     @Override
@@ -62,6 +62,7 @@ public class HasteEvent extends BaseEvent {
         block.getWorld().playSound(block.getLocation(), Sound.WITHER_SHOOT, Util.randomFloat(0.2f, 0.5f), 0f);
 
         player.addPotionEffect(new PotionEffect(PotionEffectType.FAST_DIGGING, cfg.getInt(name + ".durationTicks"), cfg.getInt(name + ".amplifier"), true), true);
+        sendMessage(player);
     }
 
 }

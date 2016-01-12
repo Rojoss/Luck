@@ -8,8 +8,8 @@ import org.bukkit.potion.PotionEffectType;
 
 public class RushEvent extends BaseEvent {
 
-    public RushEvent(String name, String description, Double minChance, Double maxChance) {
-        super(name, description, minChance, maxChance);
+    public RushEvent(String name, String description, String message, Double minChance, Double maxChance) {
+        super(name, description, message, minChance, maxChance);
     }
 
     @Override
@@ -26,6 +26,7 @@ public class RushEvent extends BaseEvent {
         }
         if (checkChance(gm.getPercentage(event.getPlayer()))) {
             event.getPlayer().addPotionEffect(new PotionEffect(PotionEffectType.SPEED, cfg.getInt(name + ".durationTicks"), cfg.getInt(name + ".amplifier")));
+            sendMessage(event.getPlayer());
         }
     }
 

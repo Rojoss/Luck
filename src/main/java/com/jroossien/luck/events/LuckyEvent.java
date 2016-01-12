@@ -11,8 +11,8 @@ import org.bukkit.event.block.BlockBreakEvent;
 
 public class LuckyEvent extends BaseEvent {
 
-    public LuckyEvent(String name, String description, Double minChance, Double maxChance) {
-        super(name, description, minChance, maxChance);
+    public LuckyEvent(String name, String description, String message, Double minChance, Double maxChance) {
+        super(name, description, message, minChance, maxChance);
     }
 
     @EventHandler
@@ -30,6 +30,7 @@ public class LuckyEvent extends BaseEvent {
 
         ParticleEffect.VILLAGER_HAPPY.display(0.5f, 0.5f, 0.5f, 0, 20, block.getLocation().add(0.5f, 0.5f, 0.5f));
         block.getWorld().playSound(block.getLocation(), Sound.LEVEL_UP, 0.3f, 2);
+        sendMessage(player);
     }
 
 }

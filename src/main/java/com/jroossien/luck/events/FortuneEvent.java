@@ -17,8 +17,8 @@ public class FortuneEvent extends BaseEvent {
 
     private Map<Material, List<EItem>> lootMap = new HashMap<Material, List<EItem>>();
 
-    public FortuneEvent(String name, String description, Double minChance, Double maxChance) {
-        super(name, description, minChance, maxChance);
+    public FortuneEvent(String name, String description, String message, Double minChance, Double maxChance) {
+        super(name, description, message, minChance, maxChance);
     }
 
     @Override
@@ -70,6 +70,7 @@ public class FortuneEvent extends BaseEvent {
 
         EItem item = Util.random(lootMap.get(block.getType()));
         block.getWorld().dropItemNaturally(block.getLocation(), item);
+        sendMessage(player);
     }
 
 }
