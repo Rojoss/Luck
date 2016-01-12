@@ -37,6 +37,7 @@ public class EventManager {
         registerEvent(new SnackEvent("Snack", "", 3d, 30d));
         registerEvent(new SmashEvent("Smash", "", 0d, 5d));
         registerEvent(new HasteEvent("Haste", "", 0d, 5d));
+        registerEvent(new SpawnerEvent("Spawner", "", 0d, 1d));
 
         save();
     }

@@ -24,6 +24,8 @@ public enum Msg {
     ITEM_NAME(Cat.GEM, "&a&lLucky Gem"),
     ITEM_LORE(Cat.GEM, "&7Carrying this gem gives you &aluck&7!\n&7The more you have the more luck!"),
 
+    SPAWNER_NAME_PREFIX(Cat.LUCK, "&a&l{entity}"),
+    SPAWNER_NAME_SUFFIX(Cat.LUCK, " &6&lSpawner!"),
     ;
 
 
@@ -91,6 +93,7 @@ public enum Msg {
         GENERAL,
         COMMAND,
         GEM,
+        LUCK,
         ;
     }
 }
