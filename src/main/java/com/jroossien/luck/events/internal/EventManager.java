@@ -41,6 +41,7 @@ public class EventManager {
         registerEvent(new LootEvent("Loot", "", 0d, 5d));
         registerEvent(new FortuneEvent("Fortune", "", 0d, 5d));
         registerEvent(new GrowthEvent("Growth", "", 2d, 20d));
+        registerEvent(new SalvageEvent("Salvage", "", 0d, 5d));
 
         save();
     }
