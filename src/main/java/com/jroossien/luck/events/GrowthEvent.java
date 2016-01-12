@@ -47,10 +47,12 @@ public class GrowthEvent extends BaseEvent {
             return;
         }
 
-        Block block = event.getClickedBlock();
         Player player = event.getPlayer();
-        final ItemStack hand = player.getItemInHand();
+        if (!Util.hasPermission(player, "luck.luck." + name)) {
+            return;
+        }
 
+        final ItemStack hand = player.getItemInHand();
         if (hand == null || hand.getType() == Material.AIR) {
             return;
         }
@@ -60,6 +62,7 @@ public class GrowthEvent extends BaseEvent {
 
         //Plant seeds in soil, plant netherwart in soulsand, plant cocoa beans on jungle logs.
         //Cocoa beans grow in stages of 4 instead of 1 and only have 3 grow stages.
+        Block block = event.getClickedBlock();
         if ((block.getType() == Material.SOIL && (hand.getType() == Material.SEEDS || hand.getType() == Material.MELON_SEEDS || hand.getType() == Material.PUMPKIN_SEEDS
                 || hand.getType() == Material.POTATO_ITEM || hand.getType() == Material.CARROT_ITEM))
                 || (block.getType() == Material.SOUL_SAND && hand.getType() == Material.NETHER_STALK)
@@ -106,6 +109,10 @@ public class GrowthEvent extends BaseEvent {
         }
 
         final Player player = event.getPlayer();
+        if (!Util.hasPermission(player, "luck.luck." + name)) {
+            return;
+        }
+
         if (!checkChance(gm.getPercentage(player))) {
             return;
         }

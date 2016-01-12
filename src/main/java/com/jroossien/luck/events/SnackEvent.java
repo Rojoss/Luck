@@ -24,6 +24,9 @@ public class SnackEvent extends BaseEvent {
     @EventHandler
     public void Eat(PlayerItemConsumeEvent event) {
         final Player player = event.getPlayer();
+        if (!Util.hasPermission(player, "luck.luck." + name)) {
+            return;
+        }
         if (!checkChance(gm.getPercentage(player))) {
             return;
         }

@@ -1,6 +1,7 @@
 package com.jroossien.luck.events;
 
 import com.jroossien.luck.events.internal.BaseEvent;
+import com.jroossien.luck.util.Util;
 import com.jroossien.luck.util.particles.ParticleEffect;
 import org.bukkit.Sound;
 import org.bukkit.entity.Player;
@@ -34,6 +35,9 @@ public class CritEvent extends BaseEvent {
         }
 
         if (damager == null) {
+            return;
+        }
+        if (!Util.hasPermission(damager, "luck.luck." + name)) {
             return;
         }
         if (!checkChance(gm.getPercentage(damager))) {

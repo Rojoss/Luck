@@ -62,6 +62,10 @@ public class FortuneEvent extends BaseEvent {
             return;
         }
         Player player = event.getPlayer();
+        if (!Util.hasPermission(player, "luck.luck." + name)) {
+            return;
+        }
+
         if (!checkChance(gm.getPercentage(player))) {
             return;
         }

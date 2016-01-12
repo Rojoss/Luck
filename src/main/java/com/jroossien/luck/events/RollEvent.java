@@ -24,6 +24,9 @@ public class RollEvent extends BaseEvent {
         }
 
         Player player = (Player)event.getEntity();
+        if (!Util.hasPermission(player, "luck.luck." + name)) {
+            return;
+        }
         if (!checkChance(gm.getPercentage(player))) {
             return;
         }

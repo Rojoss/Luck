@@ -50,6 +50,10 @@ public class TreeFellerEvent extends BaseEvent {
             return;
         }
 
+        if (!Util.hasPermission(event.getPlayer(), "luck.luck." + name)) {
+            return;
+        }
+        
         if (!checkChance(gm.getPercentage(event.getPlayer()))) {
             return;
         }

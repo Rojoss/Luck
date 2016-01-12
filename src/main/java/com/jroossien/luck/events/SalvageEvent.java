@@ -1,6 +1,7 @@
 package com.jroossien.luck.events;
 
 import com.jroossien.luck.events.internal.BaseEvent;
+import com.jroossien.luck.util.Util;
 import com.jroossien.luck.util.particles.ParticleEffect;
 import org.bukkit.Material;
 import org.bukkit.Sound;
@@ -46,6 +47,10 @@ public class SalvageEvent extends BaseEvent {
     @EventHandler
     public void itemBreak(PlayerItemBreakEvent event) {
         final Player player = event.getPlayer();
+        if (!Util.hasPermission(player, "luck.luck." + name)) {
+            return;
+        }
+
         if (!allowedItems.contains(event.getBrokenItem().getType())) {
             return;
         }

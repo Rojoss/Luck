@@ -44,6 +44,10 @@ public class ExtinguishEvent extends BaseEvent {
             return;
         }
 
+        if (!Util.hasPermission(player, "luck.luck." + name)) {
+            return;
+        }
+
         if (lavaPlayers.contains(player.getUniqueId())) {
             return;
         }

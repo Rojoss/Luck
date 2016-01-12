@@ -77,6 +77,9 @@ public class LootEvent extends BaseEvent {
             return;
         }
         Player player = entity.getKiller();
+        if (!Util.hasPermission(player, "luck.luck." + name)) {
+            return;
+        }
         if (!checkChance(gm.getPercentage(player))) {
             return;
         }

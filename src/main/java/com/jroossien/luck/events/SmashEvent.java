@@ -42,6 +42,11 @@ public class SmashEvent extends BaseEvent {
         if (!allowedBlocks.contains(block.getType())) {
             return;
         }
+
+        Player player = event.getPlayer();
+        if (!Util.hasPermission(player, "luck.luck." + name)) {
+            return;
+        }
         
         //Prevent spam clicking blocks to break them (only check first click)
         if (block.hasMetadata("smashed")) {
@@ -49,7 +54,6 @@ public class SmashEvent extends BaseEvent {
         }
         block.setMetadata("smashed", new FixedMetadataValue(luck, true));
 
-        Player player = event.getPlayer();
         if (!checkChance(gm.getPercentage(player))) {
             return;
         }

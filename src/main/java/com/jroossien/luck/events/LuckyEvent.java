@@ -1,6 +1,7 @@
 package com.jroossien.luck.events;
 
 import com.jroossien.luck.events.internal.BaseEvent;
+import com.jroossien.luck.util.Util;
 import com.jroossien.luck.util.particles.ParticleEffect;
 import org.bukkit.Material;
 import org.bukkit.Sound;
@@ -22,6 +23,9 @@ public class LuckyEvent extends BaseEvent {
             return;
         }
         Player player = event.getPlayer();
+        if (!Util.hasPermission(player, "luck.luck." + name)) {
+            return;
+        }
         if (!checkChance(gm.getPercentage(player))) {
             return;
         }

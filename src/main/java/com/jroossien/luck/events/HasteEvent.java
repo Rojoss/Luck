@@ -50,6 +50,9 @@ public class HasteEvent extends BaseEvent {
         }
 
         Player player = event.getPlayer();
+        if (!Util.hasPermission(player, "luck.luck." + name)) {
+            return;
+        }
         if (player.hasPotionEffect(PotionEffectType.FAST_DIGGING) && !cfg.getBoolean(name + ".stackEffects")) {
             return;
         }

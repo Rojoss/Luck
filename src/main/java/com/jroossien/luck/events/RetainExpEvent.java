@@ -1,6 +1,7 @@
 package com.jroossien.luck.events;
 
 import com.jroossien.luck.events.internal.BaseEvent;
+import com.jroossien.luck.util.Util;
 import com.jroossien.luck.util.particles.ParticleEffect;
 import org.bukkit.Sound;
 import org.bukkit.entity.Player;
@@ -16,6 +17,10 @@ public class RetainExpEvent extends BaseEvent {
     @EventHandler
     private void playerDeath(PlayerDeathEvent event) {
         Player player = event.getEntity();
+
+        if (!Util.hasPermission(player, "luck.luck." + name)) {
+            return;
+        }
 
         if (!checkChance(gm.getPercentage(player))) {
             return;

@@ -91,6 +91,9 @@ public class SpawnerEvent extends BaseEvent {
     @EventHandler
     public void Place(BlockPlaceEvent event) {
         Player player = event.getPlayer();
+        if (!Util.hasPermission(player, "luck.luck." + name)) {
+            return;
+        }
         ItemStack item = player.getItemInHand();
         if (item.getType() != Material.MOB_SPAWNER) {
             return;
