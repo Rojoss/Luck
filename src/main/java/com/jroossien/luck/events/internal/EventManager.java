@@ -43,6 +43,7 @@ public class EventManager {
         registerEvent(new GrowthEvent("Growth", "", 2d, 20d));
         registerEvent(new SalvageEvent("Salvage", "", 0d, 5d));
         registerEvent(new ExtinguishEffect("Extinguish", "", 5d, 40d));
+        registerEvent(new RollEffect("Roll", "", 3d, 30d));
 
         save();
     }
