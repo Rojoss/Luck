@@ -272,6 +272,25 @@ public class Util {
 
 
     /**
+     * Convert a string like 'true' to a Boolean. Returns null if it's invalid.
+     * @param str
+     * @return Boolean
+     */
+    public static Boolean getBool(String str) {
+        if (str == null) {
+            return null;
+        }
+        if (str.equalsIgnoreCase("true") || str.equalsIgnoreCase("yes") || str.equalsIgnoreCase("y") || str.equalsIgnoreCase("v")) {
+            return true;
+        }
+        if (str.equalsIgnoreCase("false") || str.equalsIgnoreCase("no") || str.equalsIgnoreCase("n") || str.equalsIgnoreCase("x")) {
+            return false;
+        }
+        return null;
+    }
+
+
+    /**
      * Convert a string like '1' to a int. Returns null if it's invalid.
      * @param str
      * @return int
@@ -292,6 +311,19 @@ public class Util {
     public static Short getShort(String str) {
         try {
             return Short.parseShort(str);
+        } catch (NumberFormatException e) {
+        }
+        return null;
+    }
+
+    /**
+     * Convert a string like '1' to a byte. Returns null if it's invalid.
+     * @param str
+     * @return byte
+     */
+    public static Byte getByte(String str) {
+        try {
+            return Byte.parseByte(str);
         } catch (NumberFormatException e) {
         }
         return null;

@@ -3,7 +3,7 @@ package com.jroossien.luck.events;
 import com.jroossien.luck.config.messages.Msg;
 import com.jroossien.luck.config.messages.Param;
 import com.jroossien.luck.events.internal.BaseEvent;
-import com.jroossien.luck.util.EItem;
+import com.jroossien.luck.util.item.EItem;
 import com.jroossien.luck.util.Util;
 import com.jroossien.luck.util.particles.ParticleEffect;
 import org.bukkit.Material;
@@ -18,8 +18,6 @@ import org.bukkit.event.block.BlockBreakEvent;
 import org.bukkit.event.block.BlockPlaceEvent;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
-import org.bukkit.potion.PotionEffect;
-import org.bukkit.potion.PotionEffectType;
 import org.bukkit.scheduler.BukkitRunnable;
 
 import java.util.ArrayList;

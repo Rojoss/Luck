@@ -7,7 +7,7 @@ import com.jroossien.luck.config.messages.Msg;
 import com.jroossien.luck.events.internal.EventManager;
 import com.jroossien.luck.listeners.MainListener;
 import com.jroossien.luck.luck.GemManager;
-import com.jroossien.luck.util.EItem;
+import com.jroossien.luck.util.item.EItem;
 import net.milkbowl.vault.Vault;
 import net.milkbowl.vault.economy.Economy;
 import org.bukkit.Material;

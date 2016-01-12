@@ -9,6 +9,18 @@ public enum Msg {
     PLAYER_COMMAND(Cat.GENERAL, "&cThis is a player command only."),
     INVALID_USAGE(Cat.GENERAL, "&cInvalid usage! &7{usage}"),
 
+    NO_ITEM_SPECIFIED(Cat.ITEM_PARSER, "&cNo item specified!"),
+    UNKNOWN_ITEM_NAME(Cat.ITEM_PARSER, "&cThe item &4{input} &cis not a valid item!"),
+    MISSING_META_VALUE(Cat.ITEM_PARSER, "&cNo value specified for meta &4{meta}&c!"),
+    NOT_A_NUMBER(Cat.ITEM_PARSER, "&4{input} &cis not a number!"),
+    INVALID_COLOR(Cat.ITEM_PARSER, "&4{input} &cis not a valid color!"),
+    INVALID_DYE_COLOR(Cat.ITEM_PARSER, "&4{input} &cis not a valid dye color!"),
+    INVALID_FIREWORK_SHAPE(Cat.ITEM_PARSER, "&4{input} &cis not a valid firework shape!"),
+    MISSING_FIREWORK_SHAPE(Cat.ITEM_PARSER, "&cTo create a firework effect, you need to specify the shape!"),
+    MISSING_FIREWORK_COLOR(Cat.ITEM_PARSER, "&cTo create a firework effect, you need to set at least one color!"),
+    INVALID_ENCHANT_VALUE(Cat.ITEM_PARSER, "&4{input} &cis not a valid enchantment level."),
+    INVALID_POTION_VALUE(Cat.ITEM_PARSER, "&4{input} &cis not a valid potion effect value. It should be {duration}.{amplifier}&c."),
+
     HELP(Cat.COMMAND, "&8======== &4&l/luck help &8========\n&6/luck &8- &7Display personal luck details.\n&6/luck help &8- &7Display this page.\n&6/luck info &8- &7Display plugin information.\n" +
             "&6/luck events &8- &7List all the luck event names.\n&6/luck event {event} &8- &7Display event specific details.\n&6/luck recipe &8- &7See the lucky gem recipe.\n" +
             "&6/luck buy &8- &7Purchase lucky gems for &e&l${price}&7.\n&6/luck reload &8- &7Reload configuration files."),
@@ -91,6 +103,7 @@ public enum Msg {
 
     private enum Cat {
         GENERAL,
+        ITEM_PARSER,
         COMMAND,
         GEM,
         LUCK,

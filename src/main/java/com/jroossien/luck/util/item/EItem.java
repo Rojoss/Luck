@@ -1,5 +1,6 @@
-package com.jroossien.luck.util;
+package com.jroossien.luck.util.item;
 
+import com.jroossien.luck.util.Util;
 import org.bukkit.Color;
 import org.bukkit.DyeColor;
 import org.bukkit.FireworkEffect;
