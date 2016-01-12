@@ -46,6 +46,7 @@ public class EventManager {
         registerEvent(new RollEffect("Roll", "", 3d, 30d));
         registerEvent(new RetainExpEffect("RetainExp", "", 3d, 20d));
         registerEvent(new LuckyEvent("Lucky", "", 4d, 20d));
+        registerEvent(new CritEffect("Crit", "", 0d, 4d));
 
         save();
     }
