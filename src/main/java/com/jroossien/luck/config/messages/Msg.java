@@ -22,7 +22,7 @@ public enum Msg {
     INVALID_POTION_VALUE(Cat.ITEM_PARSER, "&4{input} &cis not a valid potion effect value. It should be {duration}.{amplifier}&c."),
 
     HELP(Cat.COMMAND, "&8======== &4&l/luck help &8========\n&6/luck &8- &7Display personal luck details.\n&6/luck help &8- &7Display this page.\n&6/luck info &8- &7Display plugin information.\n" +
-            "&6/luck events &8- &7List all the luck event names.\n&6/luck event {event} &8- &7Display event specific details.\n&6/luck recipe &8- &7See the lucky gem recipe.\n" +
+            "&6/luck events &8- &7List all the luck event names.\n&6/luck event {event} &8- &7Display event specific details.\n" +
             "&6/luck buy &8- &7Purchase lucky gems for &e&l${price}&7.\n&6/luck reload &8- &7Reload configuration files."),
     RELOADED(Cat.COMMAND, "&6All configurations reloaded!"),
     EVENTS_LIST(Cat.COMMAND, "&6&lLuck Events&8&l: &7{events}"),

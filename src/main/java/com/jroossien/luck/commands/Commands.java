@@ -116,22 +116,6 @@ public class Commands {
             }
 
 
-            //Recipe
-            if (args[0].equalsIgnoreCase("recipe")) {
-                if (!Util.hasPermission(sender, "luck.cmd.recipe")) {
-                    Msg.NO_PERMISSION.send(sender);
-                    return true;
-                }
-                if (!(sender instanceof Player)) {
-                    Msg.PLAYER_COMMAND.send(sender);
-                    return true;
-                }
-
-                //TODO: Show recipe.
-                return true;
-            }
-
-
             //Buy
             if (args[0].equalsIgnoreCase("buy") || args[0].equalsIgnoreCase("purchase")) {
                 if (!Util.hasPermission(sender, "luck.cmd.buy")) {
