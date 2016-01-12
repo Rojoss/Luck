@@ -40,6 +40,7 @@ public class EventManager {
         registerEvent(new SpawnerEvent("Spawner", "", 0d, 1d));
         registerEvent(new LootEvent("Loot", "", 0d, 5d));
         registerEvent(new FortuneEvent("Fortune", "", 0d, 5d));
+        registerEvent(new GrowthEvent("Growth", "", 2d, 20d));
 
         save();
     }
