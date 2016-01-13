@@ -33,6 +33,7 @@ public class GrowthEvent extends BaseEvent {
         cfg.addDefault(name + ".plants", Arrays.asList("SUGAR_CANE", "CACTUS", "SAPLING", "RED_MUSHROOM", "BROWN_MUSHROOM", "SEEDS", "PUMPKIN_SEEDS", "MELON_SEEDS",
                 "CARROT_ITEM", "POTATO_ITEM", "INK_SACK", "NETHER_STALK"));
 
+        allowedCrops.clear();
         for (String mat : cfg.getStringList(name + ".plants")) {
             Material material = Material.matchMaterial(mat);
             if (material != null) {

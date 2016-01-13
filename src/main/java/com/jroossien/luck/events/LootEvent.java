@@ -44,6 +44,7 @@ public class LootEvent extends BaseEvent {
         map.put("WITHER", Arrays.asList("397:1"));
         cfg.addDefault(name + ".loot", map);
 
+        lootMap.clear();
         for (EntityType entityType : EntityType.values()) {
             if (!cfg.contains(name + ".loot." + entityType.toString()) || !cfg.isList(name + ".loot." + entityType.toString())) {
                 continue;

@@ -28,6 +28,7 @@ public class SmashEvent extends BaseEvent {
         super.loadData();
         cfg.addDefault(name + ".blocks", Arrays.asList("OBSIDIAN", "ENDER_STONE"));
 
+        allowedBlocks.clear();
         for (String mat : cfg.getStringList(name + ".blocks")) {
             Material material = Material.matchMaterial(mat);
             if (material != null) {

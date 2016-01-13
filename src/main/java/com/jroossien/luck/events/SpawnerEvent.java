@@ -37,6 +37,7 @@ public class SpawnerEvent extends BaseEvent {
         super.loadData();
         cfg.addDefault(name + ".entityTypes", Arrays.asList("ZOMBIE", "SKELETON", "SPIDER", "CAVE_SPIDER", "SILVERFISH", "BLAZE"));
 
+        allowedEntities.clear();
         for (String entity : cfg.getStringList(name + ".entityTypes")) {
             EntityType entityType = EntityType.fromName(entity);
             if (entityType != null) {

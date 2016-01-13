@@ -4,6 +4,7 @@ import com.jroossien.luck.events.internal.BaseEvent;
 import com.jroossien.luck.events.internal.TreeTypes;
 import com.jroossien.luck.util.Util;
 import com.jroossien.luck.util.particles.ParticleEffect;
+import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.Sound;
 import org.bukkit.block.Block;
@@ -37,6 +38,7 @@ public class TreeFellerEvent extends BaseEvent {
         cfg.addDefault(name + ".blocksBelowAllowed", 2);
         cfg.addDefault(name + ".animateFall", true);
 
+        allowedtypes.clear();
         for (String str : cfg.getStringList(name + ".treeTypes")) {
             allowedtypes.add(TreeTypes.valueOf(str));
         }

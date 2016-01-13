@@ -59,6 +59,7 @@ public class Commands {
 
                 lu.getCfg().load();
                 lu.getMsgCfg().load();
+                lu.getEM().load();
                 lu.getEM().registerEvents();
 
                 Msg.RELOADED.send(sender);

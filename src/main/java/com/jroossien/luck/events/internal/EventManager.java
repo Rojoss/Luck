@@ -2,6 +2,7 @@ package com.jroossien.luck.events.internal;
 
 import com.jroossien.luck.Luck;
 import com.jroossien.luck.events.*;
+import org.bukkit.configuration.InvalidConfigurationException;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.event.HandlerList;
 
@@ -62,7 +63,9 @@ public class EventManager {
             if (!cfg.getBoolean(name + ".enabled")) {
                 HandlerList.unregisterAll(event);
                 events.remove(name);
+                return;
             }
+            events.get(name).loadData();
             return;
         }
         //Load default config data.
@@ -79,6 +82,16 @@ public class EventManager {
 
     public YamlConfiguration getCfg() {
         return cfg;
+    }
+
+    public void load() {
+        try {
+            cfg.load(cfgFile);
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (InvalidConfigurationException e) {
+            e.printStackTrace();
+        }
     }
 
     public void save() {

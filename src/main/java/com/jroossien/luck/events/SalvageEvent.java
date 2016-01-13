@@ -36,6 +36,7 @@ public class SalvageEvent extends BaseEvent {
                 "LEATHER_HELMET", "LEATHER_CHESTPLATE", "LEATHER_LEGGINGS", "LEATHER_BOOTS",
                 "FISHING_ROD", "SHEARS", "CARROT_STICK", "FLINT_AND_STEEL", "BOW"));
 
+        allowedItems.clear();
         for (String mat : cfg.getStringList(name + ".items")) {
             Material material = Material.matchMaterial(mat);
             if (material != null) {

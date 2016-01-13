@@ -34,6 +34,7 @@ public class HasteEvent extends BaseEvent {
         cfg.addDefault(name + ".durationTicks", 100);
         cfg.addDefault(name + ".stackEffects", false);
 
+        allowedBlocks.clear();
         for (String mat : cfg.getStringList(name + ".blocks")) {
             Material material = Material.matchMaterial(mat);
             if (material != null) {

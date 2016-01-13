@@ -32,6 +32,7 @@ public class FortuneEvent extends BaseEvent {
         map.put("QUARTZ_ORE", Arrays.asList("quartz 3", "quartz 4", "quartz 5"));
         cfg.addDefault(name + ".loot", map);
 
+        lootMap.clear();
         for (Material material : Material.values()) {
             if (!cfg.contains(name + ".loot." + material.toString()) || !cfg.isList(name + ".loot." + material.toString())) {
                 continue;
