@@ -69,7 +69,7 @@ public class LootEvent extends BaseEvent {
         }
     }
 
-    @EventHandler
+    @EventHandler(ignoreCancelled = true)
     private void entityDeath(EntityDeathEvent event) {
         LivingEntity entity = event.getEntity();
         if (entity.getKiller() == null) {

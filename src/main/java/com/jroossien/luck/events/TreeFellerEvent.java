@@ -46,7 +46,7 @@ public class TreeFellerEvent extends BaseEvent {
     }
 
 
-    @EventHandler
+    @EventHandler(ignoreCancelled = true)
     private void breakTree(BlockBreakEvent event) {
         Block block = event.getBlock();
         if (block.getType() != Material.LOG && block.getType() != Material.LOG_2) {

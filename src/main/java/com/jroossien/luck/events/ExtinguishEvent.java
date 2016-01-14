@@ -31,7 +31,7 @@ public class ExtinguishEvent extends BaseEvent {
         cfg.addDefault(name + ".durationTicks", 200);
     }
 
-    @EventHandler
+    @EventHandler(ignoreCancelled = true)
     private void lavaDamage(EntityDamageEvent event) {
         if (!(event.getEntity() instanceof Player)) {
             return;
@@ -66,7 +66,7 @@ public class ExtinguishEvent extends BaseEvent {
         sendMessage(player);
     }
 
-    @EventHandler
+    @EventHandler(ignoreCancelled = true)
     private void playerMove(PlayerMoveEvent event) {
         if (event.getFrom().getBlockX() == event.getTo().getBlockX() && event.getFrom().getBlockY() == event.getTo().getBlockY() && event.getFrom().getBlockZ() == event.getTo().getBlockZ()) {
             return;

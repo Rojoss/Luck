@@ -22,7 +22,7 @@ public class CritEvent extends BaseEvent {
         cfg.addDefault(name + ".critMultiplier", 2d);
     }
 
-    @EventHandler
+    @EventHandler(ignoreCancelled = true)
     private void damage(EntityDamageByEntityEvent event) {
         Player damager = null;
         if (event.getDamager() instanceof Player) {

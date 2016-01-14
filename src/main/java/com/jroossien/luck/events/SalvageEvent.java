@@ -45,7 +45,7 @@ public class SalvageEvent extends BaseEvent {
         }
     }
 
-    @EventHandler
+    @EventHandler(ignoreCancelled = true)
     public void itemBreak(PlayerItemBreakEvent event) {
         final Player player = event.getPlayer();
         if (!Util.hasPermission(player, "luck.luck." + name)) {

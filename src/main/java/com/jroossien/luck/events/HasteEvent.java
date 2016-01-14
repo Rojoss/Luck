@@ -44,7 +44,7 @@ public class HasteEvent extends BaseEvent {
         }
     }
     
-    @EventHandler
+    @EventHandler(ignoreCancelled = true)
     public void haste(BlockBreakEvent event) {
         Block block = event.getBlock();
         if (!allowedBlocks.contains(block.getType())) {

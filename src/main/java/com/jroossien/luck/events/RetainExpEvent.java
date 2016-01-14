@@ -14,7 +14,7 @@ public class RetainExpEvent extends BaseEvent {
         super(name, description, message, minChance, maxChance);
     }
 
-    @EventHandler
+    @EventHandler(ignoreCancelled = true)
     private void playerDeath(PlayerDeathEvent event) {
         Player player = event.getEntity();
 

@@ -16,7 +16,7 @@ public class LuckyEvent extends BaseEvent {
         super(name, description, message, minChance, maxChance);
     }
 
-    @EventHandler
+    @EventHandler(ignoreCancelled = true)
     private void blockBreak(BlockBreakEvent event) {
         Block block = event.getBlock();
         if (block.getType() != Material.EMERALD_ORE) {

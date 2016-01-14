@@ -38,7 +38,7 @@ public class SmashEvent extends BaseEvent {
         }
     }
     
-    @EventHandler
+    @EventHandler(ignoreCancelled = true)
     public void instaBreak(BlockDamageEvent event) {
         Block block = event.getBlock();
         if (!allowedBlocks.contains(block.getType())) {

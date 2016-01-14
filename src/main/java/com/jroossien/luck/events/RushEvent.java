@@ -20,7 +20,7 @@ public class RushEvent extends BaseEvent {
         cfg.addDefault(name + ".durationTicks", 100);
     }
 
-    @EventHandler
+    @EventHandler(ignoreCancelled = true)
     private void sprint(PlayerToggleSprintEvent event) {
         if (event.isSprinting()) {
             return;

@@ -15,7 +15,7 @@ public class RollEvent extends BaseEvent {
         super(name, description, message, minChance, maxChance);
     }
 
-    @EventHandler
+    @EventHandler(ignoreCancelled = true)
     private void fallDamage(EntityDamageEvent event) {
         if (!(event.getEntity() instanceof Player)) {
             return;

@@ -48,7 +48,7 @@ public class SpawnerEvent extends BaseEvent {
         }
     }
     
-    @EventHandler
+    @EventHandler(ignoreCancelled = true)
     public void breakSpawner(BlockBreakEvent event) {
         final Block block = event.getBlock();
         if (!(block.getState() instanceof CreatureSpawner)) {
@@ -91,7 +91,7 @@ public class SpawnerEvent extends BaseEvent {
     }
 
 
-    @EventHandler
+    @EventHandler(ignoreCancelled = true)
     public void Place(BlockPlaceEvent event) {
         Player player = event.getPlayer();
         if (!Util.hasPermission(player, "luck.luck." + name)) {

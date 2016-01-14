@@ -43,7 +43,7 @@ public class GrowthEvent extends BaseEvent {
         }
     }
 
-    @EventHandler
+    @EventHandler(ignoreCancelled = true)
     private void interactPlant(PlayerInteractEvent event) {
         if (event.getAction() != Action.RIGHT_CLICK_BLOCK) {
             return;
@@ -98,7 +98,7 @@ public class GrowthEvent extends BaseEvent {
         }
     }
     
-    @EventHandler
+    @EventHandler(ignoreCancelled = true)
     public void placePlant(BlockPlaceEvent event) {
         //Mushrooms, Saplings, Cactus and Sugarcane
         final ItemStack hand = event.getItemInHand();

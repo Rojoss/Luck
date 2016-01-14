@@ -57,7 +57,7 @@ public class FortuneEvent extends BaseEvent {
         }
     }
 
-    @EventHandler
+    @EventHandler(ignoreCancelled = true)
     private void blockBreak(BlockBreakEvent event) {
         Block block = event.getBlock();
         if (!lootMap.containsKey(block.getType())) {

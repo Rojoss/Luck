@@ -22,7 +22,7 @@ public class SnackEvent extends BaseEvent {
         cfg.addDefault(name + ".saturationMultiplier", 2d);
     }
 
-    @EventHandler
+    @EventHandler(ignoreCancelled = true)
     public void Eat(PlayerItemConsumeEvent event) {
         final Player player = event.getPlayer();
         if (!Util.hasPermission(player, "luck.luck." + name)) {
