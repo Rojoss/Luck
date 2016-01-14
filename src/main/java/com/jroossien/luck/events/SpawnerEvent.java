@@ -8,6 +8,7 @@ import com.jroossien.luck.util.Str;
 import com.jroossien.luck.util.item.EItem;
 import com.jroossien.luck.util.Util;
 import com.jroossien.luck.util.particles.ParticleEffect;
+import org.bukkit.GameMode;
 import org.bukkit.Material;
 import org.bukkit.Sound;
 import org.bukkit.block.Block;
@@ -61,7 +62,7 @@ public class SpawnerEvent extends BaseEvent {
         }
 
         Player player = event.getPlayer();
-        if (!checkChance(gm.getPercentage(player))) {
+        if (player.getGameMode() == GameMode.CREATIVE || !checkChance(gm.getPercentage(player))) {
             return;
         }
 

@@ -3,6 +3,7 @@ package com.jroossien.luck.events;
 import com.jroossien.luck.events.internal.BaseEvent;
 import com.jroossien.luck.util.Util;
 import com.jroossien.luck.util.particles.ParticleEffect;
+import org.bukkit.GameMode;
 import org.bukkit.Sound;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -18,7 +19,7 @@ public class RetainExpEvent extends BaseEvent {
     private void playerDeath(PlayerDeathEvent event) {
         Player player = event.getEntity();
 
-        if (!Util.hasPermission(player, "luck.luck." + name)) {
+        if (player.getGameMode() == GameMode.CREATIVE || !Util.hasPermission(player, "luck.luck." + name)) {
             return;
         }
 

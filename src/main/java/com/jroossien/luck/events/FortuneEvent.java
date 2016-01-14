@@ -6,6 +6,7 @@ import com.jroossien.luck.util.Util;
 import com.jroossien.luck.util.item.EItem;
 import com.jroossien.luck.util.item.ItemParser;
 import com.jroossien.luck.util.particles.ParticleEffect;
+import org.bukkit.GameMode;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
 import org.bukkit.entity.Player;
@@ -64,7 +65,7 @@ public class FortuneEvent extends BaseEvent {
             return;
         }
         Player player = event.getPlayer();
-        if (!Util.hasPermission(player, "luck.luck." + name)) {
+        if (player.getGameMode() == GameMode.CREATIVE || !Util.hasPermission(player, "luck.luck." + name)) {
             return;
         }
 

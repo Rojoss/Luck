@@ -50,7 +50,7 @@ public class GrowthEvent extends BaseEvent {
         }
 
         Player player = event.getPlayer();
-        if (!Util.hasPermission(player, "luck.luck." + name)) {
+        if (player.getGameMode() == GameMode.CREATIVE || !Util.hasPermission(player, "luck.luck." + name)) {
             return;
         }
 
@@ -111,7 +111,7 @@ public class GrowthEvent extends BaseEvent {
         }
 
         final Player player = event.getPlayer();
-        if (!Util.hasPermission(player, "luck.luck." + name)) {
+        if (player.getGameMode() == GameMode.CREATIVE || !Util.hasPermission(player, "luck.luck." + name)) {
             return;
         }
 

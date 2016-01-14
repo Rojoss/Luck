@@ -2,6 +2,8 @@ package com.jroossien.luck.events;
 
 import com.jroossien.luck.events.internal.BaseEvent;
 import com.jroossien.luck.util.Util;
+import org.bukkit.GameMode;
+import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.player.PlayerToggleSprintEvent;
 import org.bukkit.potion.PotionEffect;
@@ -25,12 +27,13 @@ public class RushEvent extends BaseEvent {
         if (event.isSprinting()) {
             return;
         }
-        if (!Util.hasPermission(event.getPlayer(), "luck.luck." + name)) {
+        Player player = event.getPlayer();
+        if (player.getGameMode() == GameMode.CREATIVE || !Util.hasPermission(player, "luck.luck." + name)) {
             return;
         }
-        if (checkChance(gm.getPercentage(event.getPlayer()))) {
-            event.getPlayer().addPotionEffect(new PotionEffect(PotionEffectType.SPEED, cfg.getInt(name + ".durationTicks"), cfg.getInt(name + ".amplifier")));
-            sendMessage(event.getPlayer());
+        if (checkChance(gm.getPercentage(player))) {
+            player.addPotionEffect(new PotionEffect(PotionEffectType.SPEED, cfg.getInt(name + ".durationTicks"), cfg.getInt(name + ".amplifier")));
+            sendMessage(player);
         }
     }
 

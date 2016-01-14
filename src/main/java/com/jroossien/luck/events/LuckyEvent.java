@@ -3,6 +3,7 @@ package com.jroossien.luck.events;
 import com.jroossien.luck.events.internal.BaseEvent;
 import com.jroossien.luck.util.Util;
 import com.jroossien.luck.util.particles.ParticleEffect;
+import org.bukkit.GameMode;
 import org.bukkit.Material;
 import org.bukkit.Sound;
 import org.bukkit.block.Block;
@@ -23,7 +24,7 @@ public class LuckyEvent extends BaseEvent {
             return;
         }
         Player player = event.getPlayer();
-        if (!Util.hasPermission(player, "luck.luck." + name)) {
+        if (player.getGameMode() == GameMode.CREATIVE || !Util.hasPermission(player, "luck.luck." + name)) {
             return;
         }
         if (!checkChance(gm.getPercentage(player))) {

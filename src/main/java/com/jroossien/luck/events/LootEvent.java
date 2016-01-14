@@ -7,6 +7,7 @@ import com.jroossien.luck.util.Random;
 import com.jroossien.luck.util.item.ItemParser;
 import com.jroossien.luck.util.particles.ParticleEffect;
 import org.bukkit.Bukkit;
+import org.bukkit.GameMode;
 import org.bukkit.entity.EntityType;
 import org.bukkit.entity.LivingEntity;
 import org.bukkit.entity.Player;
@@ -79,7 +80,7 @@ public class LootEvent extends BaseEvent {
             return;
         }
         Player player = entity.getKiller();
-        if (!Util.hasPermission(player, "luck.luck." + name)) {
+        if (player.getGameMode() == GameMode.CREATIVE || !Util.hasPermission(player, "luck.luck." + name)) {
             return;
         }
         if (!checkChance(gm.getPercentage(player))) {

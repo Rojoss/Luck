@@ -6,11 +6,13 @@ import com.jroossien.luck.util.Random;
 import com.jroossien.luck.util.Util;
 import com.jroossien.luck.util.particles.ParticleEffect;
 import org.bukkit.Bukkit;
+import org.bukkit.GameMode;
 import org.bukkit.Material;
 import org.bukkit.Sound;
 import org.bukkit.block.Block;
 import org.bukkit.block.BlockFace;
 import org.bukkit.entity.FallingBlock;
+import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.block.BlockBreakEvent;
 import org.bukkit.event.entity.EntityChangeBlockEvent;
@@ -53,11 +55,12 @@ public class TreeFellerEvent extends BaseEvent {
             return;
         }
 
-        if (!Util.hasPermission(event.getPlayer(), "luck.luck." + name)) {
+        Player player = event.getPlayer();
+        if (player.getGameMode() == GameMode.CREATIVE || !Util.hasPermission(player, "luck.luck." + name)) {
             return;
         }
         
-        if (!checkChance(gm.getPercentage(event.getPlayer()))) {
+        if (!checkChance(gm.getPercentage(player))) {
             return;
         }
 
@@ -106,7 +109,7 @@ public class TreeFellerEvent extends BaseEvent {
 
         ParticleEffect.CRIT.display(0.5f, 1f, 0.5f, 0.0f, 20, block.getLocation().add(0.5f, 0f, 0.5f));
         block.getWorld().playSound(block.getLocation(), Sound.ZOMBIE_WOODBREAK, Random.Float(0.1f, 0.4f), Random.Float(0.2f, 1f));
-        sendMessage(event.getPlayer());
+        sendMessage(player);
 
         //Break blocks. (finally <3)
         int broken = 0;
