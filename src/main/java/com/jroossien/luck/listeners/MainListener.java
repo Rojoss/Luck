@@ -51,7 +51,7 @@ public class MainListener implements Listener {
         }
     }
 
-    @EventHandler
+    @EventHandler(ignoreCancelled = true)
     private void onTradeClick(InventoryClickEvent event) {
         //Cancel trading gems with villagers
         if (event.getInventory().getType() != InventoryType.MERCHANT) {
@@ -72,7 +72,7 @@ public class MainListener implements Listener {
         return;
     }
 
-    @EventHandler
+    @EventHandler(ignoreCancelled = true)
     private void onTradeDrag(InventoryDragEvent event) {
         //Cancel trading gems with villagers
         if (event.getInventory().getType() != InventoryType.MERCHANT) {
