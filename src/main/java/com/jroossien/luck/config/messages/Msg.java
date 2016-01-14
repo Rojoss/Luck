@@ -1,5 +1,6 @@
 package com.jroossien.luck.config.messages;
 
+import com.jroossien.luck.util.Str;
 import com.jroossien.luck.util.Util;
 import org.bukkit.Bukkit;
 import org.bukkit.command.CommandSender;
@@ -78,7 +79,7 @@ public enum Msg {
             message = message.replace(p.getParam(), p.toString());
         }
         if (color) {
-            message = Util.color(message);
+            message = Str.color(message);
         }
         return message;
     }

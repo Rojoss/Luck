@@ -3,6 +3,8 @@ package com.jroossien.luck.events;
 import com.jroossien.luck.config.messages.Msg;
 import com.jroossien.luck.config.messages.Param;
 import com.jroossien.luck.events.internal.BaseEvent;
+import com.jroossien.luck.util.Random;
+import com.jroossien.luck.util.Str;
 import com.jroossien.luck.util.item.EItem;
 import com.jroossien.luck.util.Util;
 import com.jroossien.luck.util.particles.ParticleEffect;
@@ -73,7 +75,7 @@ public class SpawnerEvent extends BaseEvent {
                     return;
                 }
                 if (ticks % 2 == 0) {
-                    block.getWorld().playSound(block.getLocation(), Sound.ORB_PICKUP, Util.randomFloat(0.6f, 1.2f), Util.randomFloat(1, 2));
+                    block.getWorld().playSound(block.getLocation(), Sound.ORB_PICKUP, Random.Float(0.6f, 1.2f), Random.Float(1, 2));
                 }
                 ParticleEffect.VILLAGER_HAPPY.display(0.8f, 0.8f, 0.8f, 0f, 5, block.getLocation().add(0.5f, 0f, 0.5f));
                 ParticleEffect.FLAME.display(0.8f, 0.8f, 0.8f, 0f, 1, block.getLocation().add(0.5f, 0f, 0.5f));
@@ -101,13 +103,13 @@ public class SpawnerEvent extends BaseEvent {
         }
         if (item.hasItemMeta()) {
             ItemMeta meta = item.getItemMeta();
-            if (meta.hasDisplayName() && Util.removeColor(meta.getDisplayName()).endsWith(Msg.SPAWNER_NAME_SUFFIX.getMsg())) {
+            if (meta.hasDisplayName() && Str.replaceColor(meta.getDisplayName()).endsWith(Msg.SPAWNER_NAME_SUFFIX.getMsg())) {
                 List<String> lore = meta.getLore();
                 if (lore.size() > 0) {
                     BlockState state = event.getBlockPlaced().getState();
                     if (state instanceof CreatureSpawner) {
                         CreatureSpawner spawner = (CreatureSpawner) state;
-                        spawner.setCreatureTypeByName(Util.stripAllColor(lore.get(0)));
+                        spawner.setCreatureTypeByName(Str.stripColor(lore.get(0)));
                     }
                 }
             }

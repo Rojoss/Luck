@@ -2,6 +2,7 @@ package com.jroossien.luck.listeners;
 
 import com.jroossien.luck.Luck;
 import com.jroossien.luck.config.messages.Msg;
+import com.jroossien.luck.util.Str;
 import com.jroossien.luck.util.Util;
 import org.bukkit.Material;
 import org.bukkit.event.EventHandler;
@@ -27,7 +28,7 @@ public class MainListener implements Listener {
         ItemStack result = event.getInventory().getResult();
         if (result != null && result.getType() == Material.EMERALD && result.hasItemMeta()) {
             ItemMeta meta = result.getItemMeta();
-            if (meta.hasLore() && meta.hasDisplayName() && Util.removeColor(meta.getDisplayName()).equalsIgnoreCase(Msg.ITEM_NAME.getMsg())) {
+            if (meta.hasLore() && meta.hasDisplayName() && Str.replaceColor(meta.getDisplayName()).equalsIgnoreCase(Msg.ITEM_NAME.getMsg())) {
                 if (!Util.hasPermission(event.getView().getPlayer(), "luck.craft")) {
                     event.getInventory().setResult(null);
                 }
@@ -42,7 +43,7 @@ public class MainListener implements Listener {
                 continue;
             }
             ItemMeta meta = item.getItemMeta();
-            if (!meta.hasLore() || !meta.hasDisplayName() || !Util.removeColor(meta.getDisplayName()).equalsIgnoreCase(Msg.ITEM_NAME.getMsg())) {
+            if (!meta.hasLore() || !meta.hasDisplayName() || !Str.replaceColor(meta.getDisplayName()).equalsIgnoreCase(Msg.ITEM_NAME.getMsg())) {
                 continue;
             }
             event.getInventory().setResult(null);
@@ -64,7 +65,7 @@ public class MainListener implements Listener {
             return;
         }
         ItemMeta meta = item.getItemMeta();
-        if (!meta.hasLore() || !meta.hasDisplayName() || !Util.removeColor(meta.getDisplayName()).equalsIgnoreCase(Msg.ITEM_NAME.getMsg())) {
+        if (!meta.hasLore() || !meta.hasDisplayName() || !Str.replaceColor(meta.getDisplayName()).equalsIgnoreCase(Msg.ITEM_NAME.getMsg())) {
             return;
         }
         event.setCancelled(true);
@@ -91,7 +92,7 @@ public class MainListener implements Listener {
             return;
         }
         ItemMeta meta = item.getItemMeta();
-        if (!meta.hasLore() || !meta.hasDisplayName() || !Util.removeColor(meta.getDisplayName()).equalsIgnoreCase(Msg.ITEM_NAME.getMsg())) {
+        if (!meta.hasLore() || !meta.hasDisplayName() || !Str.replaceColor(meta.getDisplayName()).equalsIgnoreCase(Msg.ITEM_NAME.getMsg())) {
             return;
         }
         event.setCancelled(true);

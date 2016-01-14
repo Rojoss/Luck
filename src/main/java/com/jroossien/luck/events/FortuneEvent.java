@@ -1,6 +1,7 @@
 package com.jroossien.luck.events;
 
 import com.jroossien.luck.events.internal.BaseEvent;
+import com.jroossien.luck.util.Random;
 import com.jroossien.luck.util.Util;
 import com.jroossien.luck.util.item.EItem;
 import com.jroossien.luck.util.item.ItemParser;
@@ -73,7 +74,7 @@ public class FortuneEvent extends BaseEvent {
 
         ParticleEffect.VILLAGER_HAPPY.display(0.5f, 0.5f, 0.5f, 0, 20, block.getLocation().add(0.5f, 0.5f, 0.5f));
 
-        EItem item = Util.random(lootMap.get(block.getType()));
+        EItem item = Random.Item(lootMap.get(block.getType()));
         block.getWorld().dropItemNaturally(block.getLocation(), item);
         sendMessage(player);
     }

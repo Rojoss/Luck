@@ -2,6 +2,7 @@ package com.jroossien.luck.luck;
 
 import com.jroossien.luck.Luck;
 import com.jroossien.luck.config.messages.Msg;
+import com.jroossien.luck.util.Str;
 import com.jroossien.luck.util.Util;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
@@ -85,7 +86,7 @@ public class GemManager {
                 continue;
             }
             meta = item.getItemMeta();
-            if (!meta.hasLore() || !meta.hasDisplayName() || !Util.removeColor(meta.getDisplayName()).equalsIgnoreCase(gemName)) {
+            if (!meta.hasLore() || !meta.hasDisplayName() || !Str.replaceColor(meta.getDisplayName()).equalsIgnoreCase(gemName)) {
                 continue;
             }
             count += item.getAmount();

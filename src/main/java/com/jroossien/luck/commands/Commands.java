@@ -4,6 +4,7 @@ import com.jroossien.luck.Luck;
 import com.jroossien.luck.config.messages.Msg;
 import com.jroossien.luck.config.messages.Param;
 import com.jroossien.luck.events.internal.BaseEvent;
+import com.jroossien.luck.util.Str;
 import com.jroossien.luck.util.Util;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
@@ -32,6 +33,7 @@ public class Commands {
 
                 if (!(sender instanceof Player)) {
                     showHelp(sender);
+                    return true;
                 }
 
                 Player player = (Player)sender;
@@ -69,7 +71,7 @@ public class Commands {
 
             //Info
             if (args[0].equalsIgnoreCase("info") || args[0].equalsIgnoreCase("plugin") || args[0].equalsIgnoreCase("version")) {
-                sender.sendMessage(Util.color("&8===== &4&lLuck Plugin &8=====\n" +
+                sender.sendMessage(Str.color("&8===== &4&lLuck Plugin &8=====\n" +
                         "&6&lAuthor&8&l: &aWorstboy(Jos)\n" +
                         "&6&lVersion&8&l: &a" + lu.getDescription().getVersion() + "\n" +
                         "&6&lSpigot URL&8&l: &9https://www.spigotmc.org/resources/luck.16930/"));
@@ -89,7 +91,7 @@ public class Commands {
                     names.add(event.getDisplayName());
                 }
 
-                Msg.EVENTS_LIST.send(sender, Param.P("{events}", Util.implode(names, ", ", " & ")));
+                Msg.EVENTS_LIST.send(sender, Param.P("{events}", Str.implode(names, ", ", " & ")));
                 return true;
             }
 

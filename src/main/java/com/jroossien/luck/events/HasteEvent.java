@@ -1,6 +1,7 @@
 package com.jroossien.luck.events;
 
 import com.jroossien.luck.events.internal.BaseEvent;
+import com.jroossien.luck.util.Random;
 import com.jroossien.luck.util.Util;
 import com.jroossien.luck.util.particles.ParticleEffect;
 import org.bukkit.Material;
@@ -63,7 +64,7 @@ public class HasteEvent extends BaseEvent {
         }
 
         ParticleEffect.SPELL_WITCH.display(0.2f, 0.3f, 0.2f, 0f, 20, block.getLocation().add(0.5f, 0f, 0.5f));
-        block.getWorld().playSound(block.getLocation(), Sound.WITHER_SHOOT, Util.randomFloat(0.2f, 0.5f), 0f);
+        block.getWorld().playSound(block.getLocation(), Sound.WITHER_SHOOT, Random.Float(0.2f, 0.5f), 0f);
 
         player.addPotionEffect(new PotionEffect(PotionEffectType.FAST_DIGGING, cfg.getInt(name + ".durationTicks"), cfg.getInt(name + ".amplifier"), true), true);
         sendMessage(player);

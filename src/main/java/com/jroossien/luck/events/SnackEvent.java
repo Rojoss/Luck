@@ -1,6 +1,7 @@
 package com.jroossien.luck.events;
 
 import com.jroossien.luck.events.internal.BaseEvent;
+import com.jroossien.luck.util.Random;
 import com.jroossien.luck.util.Util;
 import org.bukkit.Sound;
 import org.bukkit.entity.Player;
@@ -45,7 +46,7 @@ public class SnackEvent extends BaseEvent {
                 player.setSaturation(player.getSaturation() + (satChange * ((float)cfg.getDouble(name + ".saturationMultiplier") / 2)));
                 player.setFoodLevel(player.getFoodLevel() + (int)Math.round(change * (cfg.getDouble(name + ".hungerMultiplier") / 2)));
 
-                player.getWorld().playSound(player.getLocation(), Sound.BURP, Util.randomFloat(0.8f, 1.4f), Util.randomFloat(0.6f, 1.5f));
+                player.getWorld().playSound(player.getLocation(), Sound.BURP, Random.Float(0.8f, 1.4f), Random.Float(0.6f, 1.5f));
                 sendMessage(player);
             }
         }.runTaskLater(luck, 1);

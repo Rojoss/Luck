@@ -4,6 +4,7 @@ import com.jroossien.luck.Luck;
 import com.jroossien.luck.config.messages.Msg;
 import com.jroossien.luck.config.messages.Param;
 import com.jroossien.luck.luck.GemManager;
+import com.jroossien.luck.util.Random;
 import com.jroossien.luck.util.Util;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.entity.Player;
@@ -85,6 +86,6 @@ public class BaseEvent implements Listener {
     }
 
     protected boolean checkChance(double percentage) {
-        return Util.randomFloat() <= getChance(percentage);
+        return Random.Float() <= getChance(percentage);
     }
 }

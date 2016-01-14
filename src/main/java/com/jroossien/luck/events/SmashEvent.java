@@ -1,6 +1,7 @@
 package com.jroossien.luck.events;
 
 import com.jroossien.luck.events.internal.BaseEvent;
+import com.jroossien.luck.util.Random;
 import com.jroossien.luck.util.Util;
 import com.jroossien.luck.util.particles.ParticleEffect;
 import org.bukkit.Material;
@@ -61,7 +62,7 @@ public class SmashEvent extends BaseEvent {
 
         ParticleEffect.BLOCK_CRACK.display(new ParticleEffect.BlockData(block.getType(), block.getData()), 0.8f, 0.8f, 0.8f, 0f, 50, block.getLocation().add(0.5f, 0f, 0.5f));
         ParticleEffect.CRIT.display(0.8f, 0.8f, 0.8f, 0f, 10, block.getLocation().add(0.5f, 0f, 0.5f));
-        block.getWorld().playSound(block.getLocation(), Sound.ZOMBIE_WOODBREAK, Util.randomFloat(0.2f, 0.6f), Util.randomFloat(0, 0.5f));
+        block.getWorld().playSound(block.getLocation(), Sound.ZOMBIE_WOODBREAK, Random.Float(0.2f, 0.6f), Random.Float(0, 0.5f));
 
         event.setInstaBreak(true);
         sendMessage(player);

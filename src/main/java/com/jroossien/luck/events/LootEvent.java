@@ -3,6 +3,7 @@ package com.jroossien.luck.events;
 import com.jroossien.luck.events.internal.BaseEvent;
 import com.jroossien.luck.util.Util;
 import com.jroossien.luck.util.item.EItem;
+import com.jroossien.luck.util.Random;
 import com.jroossien.luck.util.item.ItemParser;
 import com.jroossien.luck.util.particles.ParticleEffect;
 import org.bukkit.Bukkit;
@@ -87,7 +88,7 @@ public class LootEvent extends BaseEvent {
 
         ParticleEffect.VILLAGER_HAPPY.display(0.5f, 1, 0.5f, 0, 10, entity.getLocation());
 
-        EItem item = Util.random(lootMap.get(event.getEntityType()));
+        EItem item = Random.Item(lootMap.get(event.getEntityType()));
         entity.getWorld().dropItemNaturally(entity.getLocation(), item);
         sendMessage(player);
     }
