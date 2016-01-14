@@ -48,6 +48,7 @@ public class EventManager {
         registerEvent(new RetainExpEvent("RetainExp", "Keep all your experience when you die.", "Look on the bright side, you kept your experience!", 3d, 20d));
         registerEvent(new LuckyEvent("Lucky", "Get a lucky gem when breaking emerald ore.", "How much luck does one need?", 4d, 20d));
         registerEvent(new CritEvent("Crit", "Deal extra damage when you hit a player/mob.", "CRIT!", 0d, 4d));
+        registerEvent(new BlockEvent("Block", "Take less damage! When blocking with a sword you take even less damage.", "BLOCK!", 0d, 4d));
 
         save();
     }
