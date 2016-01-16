@@ -49,6 +49,7 @@ public class EventManager {
         registerEvent(new LuckyEvent("Lucky", "Get a lucky gem when breaking emerald ore.", "How much luck does one need?", 4d, 20d));
         registerEvent(new CritEvent("Crit", "Deal extra damage when you hit a player/mob.", "CRIT!", 0d, 4d));
         registerEvent(new BlockEvent("Block", "Take less damage! When blocking with a sword you take even less damage.", "BLOCK!", 0d, 4d));
+        registerEvent(new DrillEvent("Drill", "Drill all nearby blocks when breaking ores and such.", "D-D-D R-R-R I-I-I L-L-L-L-L-L", 0d, 4d));
 
         save();
     }
