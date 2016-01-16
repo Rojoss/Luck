@@ -77,6 +77,10 @@ public class GrowthEvent extends BaseEvent {
                 new BukkitRunnable() {
                     @Override
                     public void run() {
+                        if (plantBlock.getType() == Material.AIR) {
+                            cancel();
+                            return;
+                        }
                         byte data = plantBlock.getData();
                         if (plantBlock.getType() == Material.COCOA) {
                             data += 4;
@@ -86,7 +90,7 @@ public class GrowthEvent extends BaseEvent {
                         plantBlock.setData(data);
                         plantBlock.getState().update();
                         ParticleEffect.VILLAGER_HAPPY.display(0.3f, 0.4f, 0.3f, 0, 10, plantBlock.getLocation().add(0.5f, -0.3f, 0.5f));
-                        if (data >= 7 || (plantBlock.getType() == Material.COCOA && data >= 12)) {
+                        if (data >= 7 || (plantBlock.getType() == Material.COCOA && data >= 12) || (plantBlock.getType() == Material.NETHER_WARTS && data >= 3)) {
                             cancel();
                         }
                     }
