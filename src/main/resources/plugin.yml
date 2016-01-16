@@ -7,5 +7,5 @@ softdepend: [Vault]
 commands:
   luck:
     description: Main Luck command.
-    usage: /<command> [help|events|event|reload|info|buy]
+    usage: /<command> [help|events|event|reload|info|give]
     aliases: [lucky,lu,l]

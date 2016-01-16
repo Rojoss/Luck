@@ -9,6 +9,7 @@ public enum Msg {
     NO_PERMISSION(Cat.GENERAL, "&cInsufficient permissions."),
     PLAYER_COMMAND(Cat.GENERAL, "&cThis is a player command only."),
     INVALID_USAGE(Cat.GENERAL, "&cInvalid usage! &7{usage}"),
+    INVALID_ONLINE_PLAYER(Cat.GENERAL, "&cInvalid player name specified! &7(The player must be online!)"),
 
     NO_ITEM_SPECIFIED(Cat.ITEM_PARSER, "&cNo item specified!"),
     UNKNOWN_ITEM_NAME(Cat.ITEM_PARSER, "&cThe item &4{input} &cis not a valid item!"),
@@ -23,7 +24,7 @@ public enum Msg {
     INVALID_POTION_VALUE(Cat.ITEM_PARSER, "&4{input} &cis not a valid potion effect value. It should be {duration}.{amplifier}&c."),
 
     HELP(Cat.COMMAND, "&8======== &4&l/luck help &8========\n&6/luck &8- &7Display personal luck details.\n&6/luck help &8- &7Display this page.\n&6/luck info &8- &7Display plugin information.\n" +
-            "&6/luck events &8- &7List all the luck event names.\n&6/luck event {event} &8- &7Display event specific details.\n" +
+            "&6/luck events &8- &7List all the luck event names.\n&6/luck event {event} &8- &7Display event specific details.\n&6/luck give {player} [amt] &8- &7Spawn in lucky gems" +
             /*"&6/luck buy &8- &7Purchase lucky gems for &e&l${price}&7.\n*/"&6/luck reload &8- &7Reload configuration files."),
     LUCK(Cat.COMMAND, "&8======== &2&lLuck &8========\n&6&lLucky gems&8&l: &a{gems}\n&6&lLuck percentage&8&l: &a{percentage}\n&7For more commands use &a/luck help&7!"),
     RELOADED(Cat.COMMAND, "&6All configurations reloaded!"),
@@ -34,6 +35,8 @@ public enum Msg {
     EVENT_INFO_EXTRA_KEY(Cat.COMMAND, "&6&l"),
     EVENT_INFO_EXTRA_SEPERATOR(Cat.COMMAND, "&8&l: "),
     EVENT_INFO_EXTRA_VALUE(Cat.COMMAND, "&7"),
+    GEM_GIVEN(Cat.COMMAND, "&6You've given &a&l{amount} &a{name} &6to &a{player}&6!"),
+    GEM_RECEIVED(Cat.COMMAND, "&6You've received &a&l{amount} &a{name}&6!"),
 
     ITEM_NAME(Cat.GEM, "&a&lLucky Gem"),
     ITEM_LORE(Cat.GEM, "&7Carrying this gem gives you &aluck&7!\n&7The more you have the more luck!"),

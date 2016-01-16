@@ -4,8 +4,11 @@ import com.jroossien.luck.Luck;
 import com.jroossien.luck.config.messages.Msg;
 import com.jroossien.luck.config.messages.Param;
 import com.jroossien.luck.events.internal.BaseEvent;
+import com.jroossien.luck.util.ItemUtil;
+import com.jroossien.luck.util.Parse;
 import com.jroossien.luck.util.Str;
 import com.jroossien.luck.util.Util;
+import com.jroossien.luck.util.item.EItem;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
@@ -75,6 +78,50 @@ public class Commands {
                         "&6&lAuthor&8&l: &aWorstboy(Jos)\n" +
                         "&6&lVersion&8&l: &a" + lu.getDescription().getVersion() + "\n" +
                         "&6&lSpigot URL&8&l: &9https://www.spigotmc.org/resources/luck.16930/"));
+                return true;
+            }
+
+
+            //Give
+            if (args[0].equalsIgnoreCase("give") || args[0].equalsIgnoreCase("spawn") || args[0].equalsIgnoreCase("gem")) {
+                if (!Util.hasPermission(sender, "luck.cmd.give")) {
+                    Msg.NO_PERMISSION.send(sender);
+                    return true;
+                }
+                if (args.length < 2 && !(sender instanceof Player)) {
+                    Msg.INVALID_USAGE.send(sender, Param.P("{usage}", "/" + label + " " + args[0] + " {player} [amt]"));
+                    return true;
+                }
+                Player player = null;
+                if (sender instanceof Player) {
+                    player = (Player)sender;
+                }
+                if (args.length > 1) {
+                    player = lu.getServer().getPlayer(args[1]);
+                }
+
+                if (player == null) {
+                    Msg.INVALID_ONLINE_PLAYER.send(sender);
+                    return true;
+                }
+
+                Integer amount = 1;
+                if (args.length > 2) {
+                    amount = Parse.Int(args[2]);
+                    if (amount == null) {
+                        Msg.NOT_A_NUMBER.send(sender, Param.P("{input}", args[2]));
+                        return true;
+                    }
+                }
+
+                EItem gem = lu.getGem().clone();
+                gem.setAmount(amount);
+
+                ItemUtil.add(player.getInventory(), gem, true, true);
+                Msg.GEM_RECEIVED.send(player, Param.P("{amount}", amount), Param.P("{name}", Msg.ITEM_NAME.getMsg() + (amount > 1 ? "s" : "")));
+                if (!player.equals(sender)) {
+                    Msg.GEM_GIVEN.send(sender, Param.P("{amount}", amount), Param.P("{name}", Msg.ITEM_NAME.getMsg() + (amount > 1 ? "s" : "")), Param.P("{player}", player.getName()));
+                }
                 return true;
             }
 
