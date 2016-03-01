@@ -49,8 +49,8 @@ public class CritEvent extends BaseEvent {
         ParticleEffect.CRIT_MAGIC.display(0.5f, 1f, 0.5f, 0, 25, event.getEntity().getLocation());
         ParticleEffect.CRIT.display(0.5f, 1f, 0.5f, 0, 25, event.getEntity().getLocation());
         ParticleEffect.FIREWORKS_SPARK.display(0.5f, 1f, 0.5f, 0, 5, event.getEntity().getLocation());
-        event.getEntity().getWorld().playSound(event.getEntity().getLocation(), Sound.SILVERFISH_KILL, 0.5f, 2);
-        damager.getWorld().playSound(damager.getLocation(), Sound.SILVERFISH_KILL, 0.5f, 2);
+        event.getEntity().getWorld().playSound(event.getEntity().getLocation(), Sound.ENTITY_SILVERFISH_DEATH, 0.5f, 2);
+        damager.getWorld().playSound(damager.getLocation(), Sound.ENTITY_SILVERFISH_DEATH, 0.5f, 2);
 
         sendMessage(damager);
     }

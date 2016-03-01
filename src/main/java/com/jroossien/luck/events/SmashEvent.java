@@ -63,7 +63,7 @@ public class SmashEvent extends BaseEvent {
 
         ParticleEffect.BLOCK_CRACK.display(new ParticleEffect.BlockData(block.getType(), block.getData()), 0.8f, 0.8f, 0.8f, 0f, 50, block.getLocation().add(0.5f, 0f, 0.5f));
         ParticleEffect.CRIT.display(0.8f, 0.8f, 0.8f, 0f, 10, block.getLocation().add(0.5f, 0f, 0.5f));
-        block.getWorld().playSound(block.getLocation(), Sound.ZOMBIE_WOODBREAK, Random.Float(0.2f, 0.6f), Random.Float(0, 0.5f));
+        block.getWorld().playSound(block.getLocation(), Sound.ENTITY_ZOMBIE_BREAK_DOOR_WOOD, Random.Float(0.2f, 0.6f), Random.Float(0, 0.5f));
 
         event.setInstaBreak(true);
         sendMessage(player);

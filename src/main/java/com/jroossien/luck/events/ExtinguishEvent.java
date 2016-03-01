@@ -62,7 +62,7 @@ public class ExtinguishEvent extends BaseEvent {
         player.addPotionEffect(new PotionEffect(PotionEffectType.FIRE_RESISTANCE, cfg.getInt(name + ".durationTicks"), 0));
         ParticleEffect.LAVA.display(1f, 0.2f, 1f, 0, 50, player.getLocation());
         ParticleEffect.FLAME.display(0.5f, 1f, 0.5f, 0, 20, player.getLocation());
-        player.getWorld().playSound(player.getLocation(), Sound.FIZZ, Random.Float(0.5f, 1), Random.Float(0, 0.8f));
+        player.getWorld().playSound(player.getLocation(), Sound.BLOCK_FIRE_EXTINGUISH, Random.Float(0.5f, 1), Random.Float(0, 0.8f));
         sendMessage(player);
     }
 

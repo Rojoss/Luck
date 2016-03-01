@@ -30,7 +30,7 @@ public class RetainExpEvent extends BaseEvent {
         event.setDroppedExp(0);
         event.setKeepLevel(true);
 
-        player.getWorld().playSound(player.getLocation(), Sound.LEVEL_UP, 1.0f, 2f);
+        player.getWorld().playSound(player.getLocation(), Sound.ENTITY_PLAYER_LEVELUP, 1.0f, 2f);
         ParticleEffect.VILLAGER_HAPPY.display(1.0f, 1.0f, 1.0f, 1.0f, 50, player.getLocation());
         sendMessage(player);
     }

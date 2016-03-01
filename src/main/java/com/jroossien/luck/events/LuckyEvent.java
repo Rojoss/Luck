@@ -34,7 +34,7 @@ public class LuckyEvent extends BaseEvent {
         block.getWorld().dropItemNaturally(block.getLocation(), luck.getGem());
 
         ParticleEffect.VILLAGER_HAPPY.display(0.5f, 0.5f, 0.5f, 0, 20, block.getLocation().add(0.5f, 0.5f, 0.5f));
-        block.getWorld().playSound(block.getLocation(), Sound.LEVEL_UP, 0.3f, 2);
+        block.getWorld().playSound(block.getLocation(), Sound.ENTITY_PLAYER_LEVELUP, 0.3f, 2);
         sendMessage(player);
     }
 

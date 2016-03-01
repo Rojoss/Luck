@@ -46,7 +46,7 @@ public class SnackEvent extends BaseEvent {
                 player.setSaturation(player.getSaturation() + (satChange * ((float)cfg.getDouble(name + ".saturationMultiplier") / 2)));
                 player.setFoodLevel(player.getFoodLevel() + (int)Math.round(change * (cfg.getDouble(name + ".hungerMultiplier") / 2)));
 
-                player.getWorld().playSound(player.getLocation(), Sound.BURP, Random.Float(0.8f, 1.4f), Random.Float(0.6f, 1.5f));
+                player.getWorld().playSound(player.getLocation(), Sound.ENTITY_PLAYER_BURP, Random.Float(0.8f, 1.4f), Random.Float(0.6f, 1.5f));
                 sendMessage(player);
             }
         }.runTaskLater(luck, 1);

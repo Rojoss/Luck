@@ -5,7 +5,6 @@ import com.jroossien.luck.events.internal.TreeTypes;
 import com.jroossien.luck.util.Random;
 import com.jroossien.luck.util.Util;
 import com.jroossien.luck.util.particles.ParticleEffect;
-import org.bukkit.Bukkit;
 import org.bukkit.GameMode;
 import org.bukkit.Material;
 import org.bukkit.Sound;
@@ -108,7 +107,8 @@ public class TreeFellerEvent extends BaseEvent {
         }
 
         ParticleEffect.CRIT.display(0.5f, 1f, 0.5f, 0.0f, 20, block.getLocation().add(0.5f, 0f, 0.5f));
-        block.getWorld().playSound(block.getLocation(), Sound.ZOMBIE_WOODBREAK, Random.Float(0.1f, 0.4f), Random.Float(0.2f, 1f));
+        //TODO: Fix broken sound
+        //block.getWorld().playSound(block.getLocation(), Sound.ZOMBIE_WOODBREAK, Random.Float(0.1f, 0.4f), Random.Float(0.2f, 1f));
         sendMessage(player);
 
         //Break blocks. (finally <3)
@@ -138,7 +138,7 @@ public class TreeFellerEvent extends BaseEvent {
 
     private void breakBlock(Block block) {
         if (Random.Float() < 0.2f) {
-            block.getWorld().playSound(block.getLocation(), Sound.DIG_WOOD, Random.Float(0.5f, 1f), Random.Float(0.5f, 1.5f));
+            block.getWorld().playSound(block.getLocation(), Sound.BLOCK_WOOD_BREAK, Random.Float(0.5f, 1f), Random.Float(0.5f, 1.5f));
         }
         ParticleEffect.BLOCK_CRACK.display(new ParticleEffect.BlockData(block.getType(), block.getData()), 0.6f, 0.6f, 0.6f, 0.2f, 10, block.getLocation().add(0.5f, 0f, 0.5f));
         if (cfg.getBoolean(name + ".animateFall")) {
@@ -170,7 +170,7 @@ public class TreeFellerEvent extends BaseEvent {
             @Override
             public void run () {
                 if (Random.Float() < 0.2f) {
-                    block.getWorld().playSound(block.getLocation(), Sound.DIG_WOOD, Random.Float(0.5f, 1.2f), Random.Float());
+                    block.getWorld().playSound(block.getLocation(), Sound.BLOCK_WOOD_BREAK, Random.Float(0.5f, 1.2f), Random.Float());
                 }
                 ParticleEffect.CRIT.display(0.5f, 0.5f, 0.5f, 0.0f, 2, block.getLocation().add(0.5f, 0f, 0.5f));
                 ParticleEffect.BLOCK_CRACK.display(new ParticleEffect.BlockData(block.getType(), block.getData()), 0.8f, 0.8f, 0.8f, 0.8f, 5, block.getLocation().add(0.5f, 0f, 0.5f));

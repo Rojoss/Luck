@@ -11,8 +11,6 @@ import org.bukkit.block.Block;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.block.BlockBreakEvent;
-import org.bukkit.event.block.BlockDamageEvent;
-import org.bukkit.metadata.FixedMetadataValue;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
 
@@ -65,7 +63,7 @@ public class HasteEvent extends BaseEvent {
         }
 
         ParticleEffect.SPELL_WITCH.display(0.2f, 0.3f, 0.2f, 0f, 20, block.getLocation().add(0.5f, 0f, 0.5f));
-        block.getWorld().playSound(block.getLocation(), Sound.WITHER_SHOOT, Random.Float(0.2f, 0.5f), 0f);
+        block.getWorld().playSound(block.getLocation(), Sound.ENTITY_WITHER_SHOOT, Random.Float(0.2f, 0.5f), 0f);
 
         player.addPotionEffect(new PotionEffect(PotionEffectType.FAST_DIGGING, cfg.getInt(name + ".durationTicks"), cfg.getInt(name + ".amplifier"), true), true);
         sendMessage(player);

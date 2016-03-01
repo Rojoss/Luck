@@ -95,7 +95,7 @@ public class GrowthEvent extends BaseEvent {
                         }
                     }
                 }.runTaskTimer(luck, 2, 1);
-                player.playSound(block.getLocation(), Sound.DIG_GRASS, Random.Float(0.8f, 1.2f), Random.Float(0.4f, 1f));
+                player.playSound(block.getLocation(), Sound.BLOCK_GRASS_BREAK, Random.Float(0.8f, 1.2f), Random.Float(0.4f, 1f));
                 ParticleEffect.DRIP_WATER.display(0.3f, 0.4f, 0.3f, 0, 30, plantBlock.getLocation().add(0.5f, -0.5f, 0.5f));
                 sendMessage(player);
             }
@@ -134,7 +134,7 @@ public class GrowthEvent extends BaseEvent {
                 if (currBlock.getType() == Material.AIR) {
                     currBlock.setType(type);
                     ParticleEffect.BLOCK_CRACK.display(new ParticleEffect.BlockData(currBlock.getType(), currBlock.getData()), 0.8f, 0.8f, 0.8f, 0f, 20, currBlock.getLocation().add(0.5f, 0f, 0.5f));
-                    currBlock.getWorld().playSound(currBlock.getLocation(), type == Material.SUGAR_CANE_BLOCK ? Sound.DIG_GRASS : Sound.DIG_WOOL, 1, Random.Float(0.8f, 1.2f));
+                    currBlock.getWorld().playSound(currBlock.getLocation(), type == Material.SUGAR_CANE_BLOCK ? Sound.BLOCK_GRASS_BREAK : Sound.BLOCK_CLOTH_BREAK, 1, Random.Float(0.8f, 1.2f));
                 }
             }
             return;
@@ -155,7 +155,7 @@ public class GrowthEvent extends BaseEvent {
                 } else if (hand.getType() == Material.SAPLING) {
                     byte data = hand.getData().getData();
                     if (data == 0) {
-                        if (block.getBiome() == Biome.SWAMPLAND || block.getBiome() == Biome.SWAMPLAND_MOUNTAINS) {
+                        if (block.getBiome() == Biome.SWAMPLAND || block.getBiome() == Biome.MUTATED_SWAMPLAND) {
                             success = block.getWorld().generateTree(block.getLocation(), TreeType.SWAMP);
                         } else {
                             if (Random.Float() < 0.2f) {

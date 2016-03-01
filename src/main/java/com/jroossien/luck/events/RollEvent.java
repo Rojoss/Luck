@@ -35,8 +35,8 @@ public class RollEvent extends BaseEvent {
         event.setCancelled(true);
         ParticleEffect.CLOUD.display(0.8f, 0.2f, 0.8f, 0, 50, player.getLocation());
         ParticleEffect.FIREWORKS_SPARK.display(0.5f, 1f, 0.5f, 0, 10, player.getLocation());
-        player.getWorld().playSound(player.getLocation(), Sound.SLIME_WALK2, Random.Float(0.5f, 1), Random.Float(1.5f, 2f));
-        player.getWorld().playSound(player.getLocation(), Sound.STEP_WOOL, 1, Random.Float(0f, 0.5f));
+        player.getWorld().playSound(player.getLocation(), Sound.ENTITY_SLIME_SQUISH, Random.Float(0.5f, 1), Random.Float(1.5f, 2f));
+        player.getWorld().playSound(player.getLocation(), Sound.BLOCK_CLOTH_STEP, 1, Random.Float(0f, 0.5f));
         sendMessage(player);
     }
 

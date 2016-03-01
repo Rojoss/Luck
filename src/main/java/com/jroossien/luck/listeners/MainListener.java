@@ -4,13 +4,11 @@ import com.jroossien.luck.Luck;
 import com.jroossien.luck.config.messages.Msg;
 import com.jroossien.luck.util.Str;
 import com.jroossien.luck.util.Util;
+import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
-import org.bukkit.event.inventory.InventoryClickEvent;
-import org.bukkit.event.inventory.InventoryDragEvent;
-import org.bukkit.event.inventory.InventoryType;
-import org.bukkit.event.inventory.PrepareItemCraftEvent;
+import org.bukkit.event.inventory.*;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
@@ -98,5 +96,19 @@ public class MainListener implements Listener {
         event.setCancelled(true);
     }
 
+    @EventHandler
+    private void invClick(InventoryMoveItemEvent event) {
+        Bukkit.broadcastMessage(event.getEventName());
+    }
+
+    @EventHandler
+    private void invClick2(InventoryInteractEvent event) {
+        Bukkit.broadcastMessage(event.getEventName());
+    }
+
+    @EventHandler
+    private void invClick3(InventoryClickEvent event) {
+        Bukkit.broadcastMessage(event.getEventName());
+    }
 
 }

@@ -66,7 +66,7 @@ public class SpawnerEvent extends BaseEvent {
             return;
         }
 
-        block.getWorld().playSound(block.getLocation(), Sound.LEVEL_UP, 50f, 2);
+        block.getWorld().playSound(block.getLocation(), Sound.ENTITY_PLAYER_LEVELUP, 50f, 2);
         ParticleEffect.VILLAGER_HAPPY.display(3f, 0.2f, 3f, 0f, 200, block.getLocation().add(0.5f, 0f, 0.5f));
         new BukkitRunnable() {
             int ticks = 0;
@@ -76,7 +76,7 @@ public class SpawnerEvent extends BaseEvent {
                     return;
                 }
                 if (ticks % 2 == 0) {
-                    block.getWorld().playSound(block.getLocation(), Sound.ORB_PICKUP, Random.Float(0.6f, 1.2f), Random.Float(1, 2));
+                    block.getWorld().playSound(block.getLocation(), Sound.ENTITY_EXPERIENCE_ORB_PICKUP, Random.Float(0.6f, 1.2f), Random.Float(1, 2));
                 }
                 ParticleEffect.VILLAGER_HAPPY.display(0.8f, 0.8f, 0.8f, 0f, 5, block.getLocation().add(0.5f, 0f, 0.5f));
                 ParticleEffect.FLAME.display(0.8f, 0.8f, 0.8f, 0f, 1, block.getLocation().add(0.5f, 0f, 0.5f));

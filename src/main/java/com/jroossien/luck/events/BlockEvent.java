@@ -57,7 +57,7 @@ public class BlockEvent extends BaseEvent {
         if (player.isBlocking()) {
             ParticleEffect.BLOCK_DUST.display(new ParticleEffect.BlockData(Material.IRON_FENCE, (byte)0), 0.5f, 1f, 0.5f, 0, 10, event.getEntity().getLocation());
         }
-        player.getWorld().playSound(player.getLocation(), Sound.ZOMBIE_METAL, 0.2f, player.isBlocking() ? 0 : 1);
+        player.getWorld().playSound(player.getLocation(), Sound.BLOCK_METAL_BREAK, 0.2f, player.isBlocking() ? 0 : 1);
 
         sendMessage(player);
     }

@@ -82,7 +82,7 @@ public class SalvageEvent extends BaseEvent {
             }
             player.getWorld().dropItemNaturally(player.getLocation(), item);
         }
-        player.getWorld().playSound(player.getLocation(), Sound.ANVIL_USE, 1, 2);
+        player.getWorld().playSound(player.getLocation(), Sound.BLOCK_ANVIL_USE, 1, 2);
         ParticleEffect.ENCHANTMENT_TABLE.display(0.8f, 2f, 0.8f, 0, 300, player.getLocation());
         sendMessage(player);
     }
